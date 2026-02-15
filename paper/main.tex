@@ -213,7 +213,7 @@ Three task-specific heads branch from the shared representations:
 
 \subsection{Training and Evaluation}
 
-We train on Congresses 104 through 114 (1995--2017) and evaluate on Congresses 115 through 117 (2017--2023), a strict temporal split that prevents information leakage. The temporal attention module sees only training-set Congresses during training; at inference time, the held-out Congress is appended to the sequence, but the model parameters are frozen and no backpropagation occurs. Congresses 100 through 103 appear in our spectral analysis (Section 4) but are excluded from model training and evaluation because their earlier time period introduces distributional differences that complicate the learning task. The 118th Congress serves as additional validation data for our spectral analysis and counterfactual experiments but is excluded from the supervised prediction tasks, as its recency precludes the temporal buffer needed for fair evaluation. Including the 118th in the test set would require the model to predict across a larger temporal gap than it was designed for; we leave this as a robustness check for future work. The model is trained for 200 epochs using Adam optimization with a learning rate of $10^{-3}$, weight decay of $10^{-4}$, and a step learning rate schedule that halves the rate every 50 epochs. Dropout of 0.1 is applied throughout.
+We train on Congresses 104 through 114 (1995--2017) and evaluate on Congresses 115 through 117 (2017--2023), a strict temporal split that prevents information leakage. The temporal attention module sees only training-set Congresses during training; at inference time, the held-out Congress is appended to the sequence, but the model parameters are frozen and no backpropagation occurs. Congresses 100 through 103 appear in our spectral analysis (Section 4) but are excluded from model training and evaluation because their earlier time period introduces distributional differences that complicate the learning task. The 118th Congress serves as additional validation data for our spectral analysis and counterfactual experiments but is excluded from the supervised prediction tasks, as its recency precludes the temporal buffer needed for fair evaluation. We reserve the 118th for the counterfactual analysis in Section 12 rather than including it in the test set, avoiding contamination between the supervised evaluation and the perturbation experiments. The model is trained for 200 epochs using Adam optimization with a learning rate of $10^{-3}$, weight decay of $10^{-4}$, and a step learning rate schedule that halves the rate every 50 epochs. Dropout of 0.1 is applied throughout.
 
 \subsection{Baselines}
 
@@ -443,44 +443,33 @@ Table~\ref{tab:bridge_legislators} presents the top bridge legislators for selec
 
 \begin{table}[!htbp]
 \centering
-{\footnotesize
-\caption{Top bridge legislators by bridge legislator index (BLI) for selected Congresses. BLI measures the decrease in algebraic connectivity when the member is removed from the co-voting graph. Higher values indicate greater structural importance for maintaining cross-partisan connectivity. The threshold annotation reports members with BLI $> 3 \times 10^{-3}$.}
+{\scriptsize
+\caption{Top bridge legislators by BLI for selected Congresses. BLI measures the Fiedler value decrease when the member is removed. Threshold: BLI $> 3 \times 10^{-3}$.}
 \label{tab:bridge_legislators}
 \begin{tabular}{llcc}
 \toprule
-Congress & Legislator & Party-State & BLI ($\times 10^{-3}$) \\
+Congress (above thresh.) & Legislator & Party-State & BLI ($\times 10^{-3}$) \\
 \midrule
-\multicolumn{4}{l}{\textbf{104th (1995--1997)} \textit{-- 25 members above threshold}} \\
- & SKELTON, Ike & D-MO & 3.56 \\
+\textbf{104th} (25) & SKELTON, Ike & D-MO & 3.56 \\
  & ORTON, William & D-UT & 3.56 \\
  & TRAFICANT, James A. & D-OH & 3.56 \\
- & TANNER, John S. & D-TN & 3.55 \\
- & PETERSON, Collin C. & D-MN & 3.55 \\
 \midrule
-\multicolumn{4}{l}{\textbf{107th (2001--2003)} \textit{-- 0 members above threshold}} \\
- & LUCAS, Ken & D-KY & 0.49 \\
+\textbf{107th} (0) & LUCAS, Ken & D-KY & 0.49 \\
  & HALL, Ralph M. & D-TX & 0.49 \\
- & MORELLA, Constance A. & R-MD & 0.49 \\
- & CASTLE, Michael N. & R-DE & 0.47 \\
 \midrule
-\multicolumn{4}{l}{\textbf{112th (2011--2013)} \textit{-- 13 members above threshold}} \\
- & PETERSON, Collin C. & D-MN & 4.18 \\
+\textbf{112th} (13) & PETERSON, Collin C. & D-MN & 4.18 \\
  & ROSS, Mike & D-AR & 4.15 \\
  & ALTMIRE, Jason & D-PA & 4.10 \\
- & BARROW, John & D-GA & 4.03 \\
 \midrule
-\multicolumn{4}{l}{\textbf{117th (2021--2023)} \textit{-- 11 members above threshold}} \\
- & KATKO, John & R-NY & 3.88 \\
+\textbf{117th} (11) & KATKO, John & R-NY & 3.88 \\
  & UPTON, Fred & R-MI & 3.87 \\
- & FITZPATRICK, Brian & R-PA & 3.86 \\
  & GONZALEZ, Anthony & R-OH & 3.85 \\
- & KINZINGER, Adam & R-IL & 3.83 \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-The trajectory of bridge legislators over time is itself a polarization narrative. From 25 members above the BLI threshold in the 104th Congress to 11 in the 117th, the decline understates the real story, because the 117th bridges are qualitatively different: all five top scorers are Republicans who would be gone from Congress within two years. What happened to the bridge legislators? We tracked the 104th Congress's top bridge members forward through subsequent sessions. Of the eight members listed in Table~\ref{tab:bridge_legislators}, three (Orton, Baesler, Browder) were gone by the 107th Congress. Ike Skelton and Bud Cramer survived into the 110th but not the 112th. Only Collin Peterson persisted through the 116th, ultimately losing his 2020 reelection. James Traficant was expelled from the House in 2002 after a corruption conviction, the one departure unrelated to ideological sorting. The pattern repeats in the 112th: Jason Altmire lost his 2012 primary to a more liberal Democrat after redistricting forced him into a new district. Heath Shuler retired rather than run in a redrawn seat. John Barrow lost his 2014 general election. The 117th Congress bridges fared no better: Anthony Gonzalez retired rather than face a Trump-backed primary challenger after voting for impeachment, Adam Kinzinger likewise declined to run again, Fred Upton retired, John Katko retired, and Peter Meijer lost his 2022 primary to a Trump-endorsed candidate. Bridge legislators are systematically selected out of the institution through primary challenges, redistricting, and strategic retirement, a structural mechanism that reinforces the network disconnection documented in our spectral analysis.
+The decline from 25 bridge members (104th) to 11 (117th) understates the real story: the 117th's top five scorers were all Republicans who left Congress within two years. Tracking the 104th's bridges forward, three (Orton, Baesler, Browder) were gone by the 107th; Skelton and Cramer survived into the 110th but not the 112th; Traficant was expelled in 2002 for corruption (the one departure unrelated to ideological sorting); only Peterson persisted through the 116th before losing reelection in 2020. The 112th's bridges followed the same pattern: Altmire lost his 2012 primary after redistricting, Shuler retired, Barrow lost in 2014. The 117th's bridges were eliminated even faster: Gonzalez and Kinzinger retired to avoid Trump-backed primaries, Upton and Katko retired, and Meijer lost his 2022 primary. Bridge legislators are systematically selected out through primaries, redistricting, and strategic retirement, reinforcing the network disconnection documented in our spectral analysis.
 
 \subsubsection{Bridge Scores as Predictors of Electoral Vulnerability}
 
@@ -567,7 +556,7 @@ NOMINATE-only & (2 dims) & 0.814 & 0.438 & 1.000 & 0.0007 \\
 }
 \end{table}
 
-Removing DW-NOMINATE (columns 1-2) reduces defection AUC by roughly 14 percentage points (0.887 to 0.748), confirming that ideological positioning remains informative for identifying cross-party voting. However, network-only features achieve comparable AUC (0.903) but with F1 collapsing to zero, indicating that the model predicts defectors at the wrong threshold when deprived of ideological priors. Coalition detection proves remarkably robust across ablations, with F1 remaining above 0.96 whenever any feature category is present. Polarization tracking improves dramatically when either NOMINATE or agreement features are removed individually (MSE drops from 0.0076 to 0.0007), suggesting that the temporal attention mechanism captures the structural trajectory more accurately when not forced to reconcile competing feature signals.
+Removing DW-NOMINATE (row 2) reduces defection AUC by roughly 14 percentage points (0.887 to 0.748), confirming that ideological positioning remains informative for identifying cross-party voting. However, network-only features achieve comparable AUC (0.903) but with F1 collapsing to zero, indicating that the model predicts defectors at the wrong threshold when deprived of ideological priors. Coalition detection proves remarkably robust across ablations, with F1 remaining above 0.96 whenever any feature category is present. Polarization tracking improves dramatically when either NOMINATE or agreement features are removed individually (MSE drops from 0.0076 to 0.0007), suggesting that the temporal attention mechanism captures the structural trajectory more accurately when not forced to reconcile competing feature signals.
 
 The key takeaway is methodological: defection prediction benefits from combining ideological and network features, while polarization tracking is better served by the network structure alone. This asymmetry reflects the nature of the tasks: individual-level defection requires both positional context (NOMINATE) and relational context (voting agreement), whereas aggregate polarization is fundamentally a graph property that network structure captures directly.
 

@@ -1,0 +1,192 @@
+{
+  "100": {
+    "congress": 100,
+    "chamber": "Senate",
+    "n_members": 101,
+    "n_rollcalls": 799,
+    "fiedler": 0.7664294426589632,
+    "party_distance": 0.608407114624506,
+    "density": 0.9140594059405941,
+    "mean_degree": 91.4059405940594
+  },
+  "101": {
+    "congress": 101,
+    "chamber": "Senate",
+    "n_members": 101,
+    "n_rollcalls": 638,
+    "fiedler": 0.7841739239683179,
+    "party_distance": 0.6125396825396825,
+    "density": 0.9158415841584159,
+    "mean_degree": 91.58415841584159
+  },
+  "102": {
+    "congress": 102,
+    "chamber": "Senate",
+    "n_members": 102,
+    "n_rollcalls": 550,
+    "fiedler": 0.5927006776669879,
+    "party_distance": 0.618967868338558,
+    "density": 0.8013977868375073,
+    "mean_degree": 80.94117647058823
+  },
+  "103": {
+    "congress": 103,
+    "chamber": "Senate",
+    "n_members": 101,
+    "n_rollcalls": 724,
+    "fiedler": 0.32911632258456774,
+    "party_distance": 0.6290534290271133,
+    "density": 0.658019801980198,
+    "mean_degree": 65.8019801980198
+  },
+  "104": {
+    "congress": 104,
+    "chamber": "Senate",
+    "n_members": 103,
+    "n_rollcalls": 919,
+    "fiedler": 0.1810216447748484,
+    "party_distance": 0.6527992424242425,
+    "density": 0.5775747192080716,
+    "mean_degree": 58.9126213592233
+  },
+  "105": {
+    "congress": 105,
+    "chamber": "Senate",
+    "n_members": 100,
+    "n_rollcalls": 612,
+    "fiedler": 0.4666470460894352,
+    "party_distance": 0.6841010101010102,
+    "density": 0.7232323232323232,
+    "mean_degree": 71.6
+  },
+  "106": {
+    "congress": 106,
+    "chamber": "Senate",
+    "n_members": 102,
+    "n_rollcalls": 672,
+    "fiedler": 0.23675913134280974,
+    "party_distance": 0.6585450310559006,
+    "density": 0.6043486701611338,
+    "mean_degree": 61.03921568627451
+  },
+  "107": {
+    "congress": 107,
+    "chamber": "Senate",
+    "n_members": 100,
+    "n_rollcalls": 633,
+    "fiedler": 0.5630308459086422,
+    "party_distance": 0.6635,
+    "density": 0.7864646464646464,
+    "mean_degree": 77.86
+  },
+  "108": {
+    "congress": 108,
+    "chamber": "Senate",
+    "n_members": 99,
+    "n_rollcalls": 675,
+    "fiedler": 0.13303455869355746,
+    "party_distance": 0.6494632352941176,
+    "density": 0.5561739847454134,
+    "mean_degree": 54.505050505050505
+  },
+  "109": {
+    "congress": 109,
+    "chamber": "Senate",
+    "n_members": 100,
+    "n_rollcalls": 645,
+    "fiedler": 0.24347703947832638,
+    "party_distance": 0.6856383838383839,
+    "density": 0.6080808080808081,
+    "mean_degree": 60.2
+  },
+  "110": {
+    "congress": 110,
+    "chamber": "Senate",
+    "n_members": 101,
+    "n_rollcalls": 657,
+    "fiedler": 0.3460275578509982,
+    "party_distance": 0.6866294117647058,
+    "density": 0.6603960396039604,
+    "mean_degree": 66.03960396039604
+  },
+  "111": {
+    "congress": 111,
+    "chamber": "Senate",
+    "n_members": 106,
+    "n_rollcalls": 696,
+    "fiedler": 0.11641862099718177,
+    "party_distance": 0.7035659824046923,
+    "density": 0.5593890386343217,
+    "mean_degree": 58.735849056603776
+  },
+  "112": {
+    "congress": 112,
+    "chamber": "Senate",
+    "n_members": 101,
+    "n_rollcalls": 486,
+    "fiedler": 0.29873968279834134,
+    "party_distance": 0.7444280660377359,
+    "density": 0.6358415841584159,
+    "mean_degree": 63.584158415841586
+  },
+  "113": {
+    "congress": 113,
+    "chamber": "Senate",
+    "n_members": 102,
+    "n_rollcalls": 657,
+    "fiedler": 0.0718158427517712,
+    "party_distance": 0.7957919254658384,
+    "density": 0.5340710541642399,
+    "mean_degree": 53.94117647058823
+  },
+  "114": {
+    "congress": 114,
+    "chamber": "Senate",
+    "n_members": 98,
+    "n_rollcalls": 502,
+    "fiedler": 0.17445252500387898,
+    "party_distance": 0.8100328282828283,
+    "density": 0.5758468335787923,
+    "mean_degree": 55.857142857142854
+  },
+  "115": {
+    "congress": 115,
+    "chamber": "Senate",
+    "n_members": 102,
+    "n_rollcalls": 599,
+    "fiedler": 0.1457510446170241,
+    "party_distance": 0.821412037037037,
+    "density": 0.5628033391574452,
+    "mean_degree": 56.84313725490196
+  },
+  "116": {
+    "congress": 116,
+    "chamber": "Senate",
+    "n_members": 100,
+    "n_rollcalls": 720,
+    "fiedler": 0.13559733660332968,
+    "party_distance": 0.8419597423510469,
+    "density": 0.5583838383838384,
+    "mean_degree": 55.28
+  },
+  "117": {
+    "congress": 117,
+    "chamber": "Senate",
+    "n_members": 98,
+    "n_rollcalls": 949,
+    "fiedler": 0.053362818372758025,
+    "party_distance": 0.8695108333333333,
+    "density": 0.5190406059330949,
+    "mean_degree": 50.3469387755102
+  },
+  "118": {
+    "congress": 118,
+    "chamber": "Senate",
+    "n_members": 100,
+    "n_rollcalls": 691,
+    "fiedler": 0.05349296082785672,
+    "party_distance": 0.8950824329731893,
+    "density": 0.5161616161616162,
+    "mean_degree": 51.1
+  }
+}

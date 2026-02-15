@@ -1,0 +1,303 @@
+{
+  "Full (all 8 features)": {
+    "label": "Full (all 8 features)",
+    "n_features": 8,
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "test_defection_auc": 0.8867181978339665,
+    "test_defection_f1": 0.5024561403508772,
+    "test_coalition_f1": 0.9925246728186364,
+    "test_coalition_auc": 0.9998925387315971,
+    "test_polarization_mse": 0.007561280512510747,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.9524423543689321,
+        "f1": 0.6666666666666666,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9357447564877355,
+        "f1": 0.56,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.771967482645232,
+        "f1": 0.2807017543859649,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 0.9999358264747878,
+        "f1": 0.9915966386554622,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9997417897200033,
+        "f1": 0.9917355371900827,
+        "split": "test"
+      },
+      "117": {
+        "auc": 1.0,
+        "f1": 0.9942418426103646,
+        "split": "test"
+      }
+    }
+  },
+  "No DW-NOMINATE": {
+    "label": "No DW-NOMINATE",
+    "n_features": 6,
+    "feature_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "test_defection_auc": 0.7478797331772022,
+    "test_defection_f1": 0.4519191919191919,
+    "test_coalition_f1": 0.9679806540426735,
+    "test_coalition_auc": 0.9983511052260923,
+    "test_polarization_mse": 0.0027172185791140622,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.7998331310679613,
+        "f1": 0.5757575757575758,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9217472449342339,
+        "f1": 0.6,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.5220588235294118,
+        "f1": 0.18,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 0.9999197830934847,
+        "f1": 0.989517819706499,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9992737835875092,
+        "f1": 0.970954356846473,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.9958597489972829,
+        "f1": 0.9434697855750487,
+        "split": "test"
+      }
+    }
+  },
+  "No Party ID": {
+    "label": "No Party ID",
+    "n_features": 7,
+    "feature_indices": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "test_defection_auc": 0.7522018825021201,
+    "test_defection_f1": 0.22870606614761846,
+    "test_coalition_f1": 0.9768582997158974,
+    "test_coalition_auc": 0.9990738539928031,
+    "test_polarization_mse": 0.012004070312046719,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.835179004854369,
+        "f1": 0.3829787234042553,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.8296747244934235,
+        "f1": 0.26865671641791045,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.5917519181585678,
+        "f1": 0.034482758620689655,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 0.9996951757552421,
+        "f1": 0.989517819706499,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9996126845800049,
+        "f1": 0.9815195071868583,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.9979137016431621,
+        "f1": 0.9595375722543352,
+        "split": "test"
+      }
+    }
+  },
+  "No NOMINATE + No Party": {
+    "label": "No NOMINATE + No Party",
+    "n_features": 5,
+    "feature_indices": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "test_defection_auc": 0.8974958842613852,
+    "test_defection_f1": 0.0,
+    "test_coalition_f1": 0.6628306754779653,
+    "test_coalition_auc": 0.4835274796686675,
+    "test_polarization_mse": 0.008416170878316738,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.8503489077669903,
+        "f1": 0.0,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9235691432634199,
+        "f1": 0.0,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.918569601753745,
+        "f1": 0.0,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 0.47157915002165857,
+        "f1": 0.6431478968792401,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.4757040264665537,
+        "f1": 0.6558704453441295,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.5032992625177901,
+        "f1": 0.6894736842105263,
+        "split": "test"
+      }
+    }
+  },
+  "Network-only (agr features)": {
+    "label": "Network-only (agr features)",
+    "n_features": 3,
+    "feature_indices": [
+      5,
+      6,
+      7
+    ],
+    "test_defection_auc": 0.9033341729656513,
+    "test_defection_f1": 0.0,
+    "test_coalition_f1": 0.6628306754779653,
+    "test_coalition_auc": 0.5036809405924206,
+    "test_polarization_mse": 0.000716454065299396,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.9771692961165049,
+        "f1": 0.0,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.9126377532883043,
+        "f1": 0.0,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.8201954694921446,
+        "f1": 0.0,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 0.3857791468129823,
+        "f1": 0.6431478968792401,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.5804244331477446,
+        "f1": 0.6558704453441295,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.5448392418165351,
+        "f1": 0.6894736842105263,
+        "split": "test"
+      }
+    }
+  },
+  "NOMINATE-only": {
+    "label": "NOMINATE-only",
+    "n_features": 2,
+    "feature_indices": [
+      0,
+      1
+    ],
+    "test_defection_auc": 0.8136546338542194,
+    "test_defection_f1": 0.43824035881821244,
+    "test_coalition_f1": 1.0,
+    "test_coalition_auc": 1.0,
+    "test_polarization_mse": 0.0006819917283005972,
+    "per_congress_defection": {
+      "115": {
+        "auc": 0.9472087378640777,
+        "f1": 0.6229508196721312,
+        "split": "test"
+      },
+      "116": {
+        "auc": 0.8416725915392819,
+        "f1": 0.5048543689320388,
+        "split": "test"
+      },
+      "117": {
+        "auc": 0.6520825721592984,
+        "f1": 0.18691588785046728,
+        "split": "test"
+      }
+    },
+    "per_congress_coalition": {
+      "115": {
+        "auc": 1.0,
+        "f1": 1.0,
+        "split": "test"
+      },
+      "116": {
+        "auc": 1.0,
+        "f1": 1.0,
+        "split": "test"
+      },
+      "117": {
+        "auc": 1.0,
+        "f1": 1.0,
+        "split": "test"
+      }
+    }
+  }
+}

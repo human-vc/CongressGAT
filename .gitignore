@@ -8,3 +8,14 @@ H*_votes.csv
 results_final/processed_data.npz
 results_final/defection_rates_*.npy
 pipeline_results/
+
+# Raw data (downloadable from Voteview)
+data_senate/
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.log
+paper/*.blg
+paper/*.out
+paper/*.toc
+paper/missfont.log

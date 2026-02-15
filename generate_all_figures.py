@@ -209,10 +209,11 @@ def figure3_attention():
 
     attn_sub = mean_attn[np.ix_(show_idx, show_idx)]
 
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5),
+                              gridspec_kw={'width_ratios': [1, 1]})
 
     ax = axes[0]
-    im = ax.imshow(attn_sub, cmap='YlOrRd', aspect='auto', interpolation='nearest')
+    im = ax.imshow(attn_sub, cmap='YlOrRd', aspect='equal', interpolation='nearest')
     plt.colorbar(im, ax=ax, shrink=0.8, label='Attention Weight')
     ax.set_title('GAT Attention Weights\n(Sorted by Ideology)', fontweight='bold')
     ax.set_xlabel('Representative Index (Left to Right)')
@@ -246,6 +247,10 @@ def figure3_attention():
         ax.set_ylabel('Density')
         ax.set_title('Attention Distribution by Party Alignment', fontweight='bold')
         ax.legend(frameon=True)
+
+    # Force both subplots to the same height/aspect ratio
+    for a in axes:
+        a.set_box_aspect(1)
 
     plt.tight_layout()
     plt.savefig(os.path.join(FIG_DIR, "fig3_attention.pdf"))
@@ -401,10 +406,16 @@ def figure7_embeddings():
 
     fig, axes = plt.subplots(1, len(target_congresses), figsize=(14, 4.5))
 
+    # First pass: compute t-SNE for all panels and collect coordinate ranges
+    all_coords = []
+    all_parties = []
+    panel_valid = []
     for idx, congress in enumerate(target_congresses):
         ckey = str(congress)
         if ckey not in emb_data.files:
-            axes[idx].set_visible(False)
+            all_coords.append(None)
+            all_parties.append(None)
+            panel_valid.append(False)
             continue
 
         embeddings = emb_data[ckey]
@@ -419,7 +430,29 @@ def figure7_embeddings():
         tsne = TSNE(n_components=2, random_state=42, perplexity=perplexity)
         coords = tsne.fit_transform(embeddings)
 
+        all_coords.append(coords)
+        all_parties.append(parties)
+        panel_valid.append(True)
+
+    # Compute shared axis limits across all valid panels
+    valid_coords = [c for c in all_coords if c is not None]
+    if valid_coords:
+        all_x = np.concatenate([c[:, 0] for c in valid_coords])
+        all_y = np.concatenate([c[:, 1] for c in valid_coords])
+        x_margin = (all_x.max() - all_x.min()) * 0.08
+        y_margin = (all_y.max() - all_y.min()) * 0.08
+        shared_xlim = (all_x.min() - x_margin, all_x.max() + x_margin)
+        shared_ylim = (all_y.min() - y_margin, all_y.max() + y_margin)
+
+    # Second pass: plot with shared limits
+    for idx, congress in enumerate(target_congresses):
         ax = axes[idx]
+        if not panel_valid[idx]:
+            ax.set_visible(False)
+            continue
+
+        coords = all_coords[idx]
+        parties = all_parties[idx]
         dem_mask = parties == 100
         rep_mask = parties == 200
 
@@ -433,6 +466,8 @@ def figure7_embeddings():
         ax.legend(loc='best', frameon=True, framealpha=0.9, fontsize=8)
         ax.set_xticks([])
         ax.set_yticks([])
+        ax.set_xlim(shared_xlim)
+        ax.set_ylim(shared_ylim)
 
     plt.tight_layout()
     plt.savefig(os.path.join(FIG_DIR, "fig7_embeddings.pdf"))

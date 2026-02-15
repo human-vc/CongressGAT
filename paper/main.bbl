@@ -1,8 +1,10 @@
 \begin{thebibliography}{}
 
 \bibitem[Andris et~al., 2015]{andris2015}
-Andris, C., Lee, D., Hamilton, M.~J., Martino, M., Gunning, C.~E., and Selden, J.~A. (2015).
-\newblock The rise of partisanship and super-cooperators in the {U.S.} {House} of {Representatives}.
+Andris, C., Lee, D., Hamilton, M.~J., Martino, M., Gunning, C.~E., and Selden,
+  J.~A. (2015).
+\newblock The rise of partisanship and super-cooperators in the {U.S.} {House}
+  of {Representatives}.
 \newblock {\em PLOS ONE}, 10(4):e0123507.
 
 \bibitem[{Congressional Budget Office}, 2013]{cbo2013}
@@ -26,7 +28,8 @@ Kipf, T.~N. and Welling, M. (2017).
 \newblock In {\em International Conference on Learning Representations (ICLR)}.
 
 \bibitem[Lewis et~al., 2023]{lewis2023}
-Lewis, J.~B., Poole, K.~T., Rosenthal, H., Boche, A., Rudkin, A., and Sonnet, L. (2023).
+Lewis, J.~B., Poole, K.~T., Rosenthal, H., Boche, A., Rudkin, A., and Sonnet,
+  L. (2023).
 \newblock Voteview: Congressional roll-call votes database.
 \newblock {\em Available at \url{https://voteview.com}}.
 
@@ -37,7 +40,8 @@ Li, M., Hao, Z., and Zeng, Y. (2021).
 
 \bibitem[Mann and Ornstein, 2012]{mann2012}
 Mann, T.~E. and Ornstein, N.~J. (2012).
-\newblock {\em It's Even Worse Than It Looks: How the American Constitutional System Collided with the New Politics of Extremism}.
+\newblock {\em It's Even Worse Than It Looks: How the American Constitutional
+  System Collided with the New Politics of Extremism}.
 \newblock Basic Books.
 
 \bibitem[Moody and Mucha, 2013]{moody2013}
@@ -48,7 +52,8 @@ Moody, J. and Mucha, P.~J. (2013).
 \bibitem[Newman, 2006]{newman2006}
 Newman, M. E.~J. (2006).
 \newblock Modularity and community structure in networks.
-\newblock {\em Proceedings of the National Academy of Sciences}, 103(23):8577--8582.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  103(23):8577--8582.
 
 \bibitem[Poole and Rosenthal, 1985]{poole1985}
 Poole, K.~T. and Rosenthal, H. (1985).
@@ -57,7 +62,8 @@ Poole, K.~T. and Rosenthal, H. (1985).
 
 \bibitem[Poole and Rosenthal, 2017]{poole2017}
 Poole, K.~T. and Rosenthal, H. (2017).
-\newblock {\em Ideology and Congress: A Political Economic History of Roll Call Voting}.
+\newblock {\em Ideology and Congress: A Political Economic History of Roll Call
+  Voting}.
 \newblock Transaction Publishers, 2nd edition.
 
 \bibitem[Skocpol and Williamson, 2012]{skocpol2012}
@@ -71,7 +77,8 @@ Theriault, S.~M. (2008).
 \newblock Cambridge University Press.
 
 \bibitem[Veli{\v{c}}kovi{\'c} et~al., 2018]{velickovic2018}
-Veli{\v{c}}kovi{\'c}, P., Cucurull, G., Casanova, A., Romero, A., Li{\`o}, P., and Bengio, Y. (2018).
+Veli{\v{c}}kovi{\'c}, P., Cucurull, G., Casanova, A., Romero, A., Li{\`o}, P.,
+  and Bengio, Y. (2018).
 \newblock Graph attention networks.
 \newblock In {\em International Conference on Learning Representations (ICLR)}.
 
@@ -83,6 +90,7 @@ Waugh, A.~S., Pei, L., Fowler, J.~H., Mucha, P.~J., and Porter, M.~A. (2009).
 \bibitem[Yang et~al., 2016]{yang2020}
 Yang, Z., Cohen, W.~W., and Salakhutdinov, R. (2016).
 \newblock Revisiting semi-supervised learning with graph embeddings.
-\newblock In {\em Proceedings of the International Conference on Machine Learning}.
+\newblock In {\em Proceedings of the International Conference on Machine
+  Learning}.
 
 \end{thebibliography}
