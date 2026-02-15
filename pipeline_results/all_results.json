@@ -1,0 +1,496 @@
+{
+  "100": {
+    "congress": 100,
+    "n_members": 439,
+    "n_rollcalls": 939,
+    "spectral": {
+      "fiedler": 0.5335482510966589,
+      "n_nodes": 439,
+      "n_edges": 74985,
+      "density": 0.7799482010796642,
+      "mean_degree": 341.61731207289296
+    },
+    "polarization": {
+      "party_distance": 0.6432526858616244,
+      "dem_mean": -0.3079230769230769,
+      "rep_mean": 0.3353296089385475,
+      "dem_std": 0.16465465563202814,
+      "rep_std": 0.15461618641320962,
+      "overlap": 0.22199999999999998,
+      "n_dem": 260,
+      "n_rep": 179
+    },
+    "defection": {
+      "n_defectors": 259,
+      "pct_defectors": 0.5899772209567198
+    }
+  },
+  "101": {
+    "congress": 101,
+    "n_members": 440,
+    "n_rollcalls": 879,
+    "spectral": {
+      "fiedler": 0.5733468780769608,
+      "n_nodes": 440,
+      "n_edges": 77436,
+      "density": 0.801780907020087,
+      "mean_degree": 351.9818181818182
+    },
+    "polarization": {
+      "party_distance": 0.6517403722446179,
+      "dem_mean": -0.3133358778625954,
+      "rep_mean": 0.33840449438202247,
+      "dem_std": 0.16601202985413566,
+      "rep_std": 0.16015117290250397,
+      "overlap": 0.14,
+      "n_dem": 262,
+      "n_rep": 178
+    },
+    "defection": {
+      "n_defectors": 302,
+      "pct_defectors": 0.6863636363636364
+    }
+  },
+  "102": {
+    "congress": 102,
+    "n_members": 435,
+    "n_rollcalls": 901,
+    "spectral": {
+      "fiedler": 0.4231491736020442,
+      "n_nodes": 435,
+      "n_edges": 67521,
+      "density": 0.715302717304942,
+      "mean_degree": 310.4413793103448
+    },
+    "polarization": {
+      "party_distance": 0.6605367771918849,
+      "dem_mean": -0.31371641791044774,
+      "rep_mean": 0.3468203592814372,
+      "dem_std": 0.16599991512047366,
+      "rep_std": 0.15406699318119657,
+      "overlap": 0.14,
+      "n_dem": 268,
+      "n_rep": 167
+    },
+    "defection": {
+      "n_defectors": 293,
+      "pct_defectors": 0.6735632183908046
+    }
+  },
+  "103": {
+    "congress": 103,
+    "n_members": 441,
+    "n_rollcalls": 1094,
+    "spectral": {
+      "fiedler": 0.2300203316805374,
+      "n_nodes": 441,
+      "n_edges": 59113,
+      "density": 0.6092867450010307,
+      "mean_degree": 268.0861678004535
+    },
+    "polarization": {
+      "party_distance": 0.7012135899517238,
+      "dem_mean": -0.3288821292775665,
+      "rep_mean": 0.37233146067415734,
+      "dem_std": 0.16531285406362112,
+      "rep_std": 0.14383096047096836,
+      "overlap": 0.114,
+      "n_dem": 263,
+      "n_rep": 178
+    },
+    "defection": {
+      "n_defectors": 244,
+      "pct_defectors": 0.5532879818594104
+    }
+  },
+  "104": {
+    "congress": 104,
+    "n_members": 444,
+    "n_rollcalls": 1321,
+    "spectral": {
+      "fiedler": 0.17754188540430738,
+      "n_nodes": 444,
+      "n_edges": 57693,
+      "density": 0.5866329083033373,
+      "mean_degree": 259.8783783783784
+    },
+    "polarization": {
+      "party_distance": 0.7578576434159061,
+      "dem_mean": -0.3612644230769231,
+      "rep_mean": 0.3965932203389831,
+      "dem_std": 0.15203672469952603,
+      "rep_std": 0.15402934110142097,
+      "overlap": 0.114,
+      "n_dem": 208,
+      "n_rep": 236
+    },
+    "defection": {
+      "n_defectors": 230,
+      "pct_defectors": 0.5180180180180181
+    }
+  },
+  "105": {
+    "congress": 105,
+    "n_members": 441,
+    "n_rollcalls": 1166,
+    "spectral": {
+      "fiedler": 0.444329210100028,
+      "n_nodes": 441,
+      "n_edges": 70123,
+      "density": 0.7227685013399299,
+      "mean_degree": 318.01814058956916
+    },
+    "polarization": {
+      "party_distance": 0.7778502164502166,
+      "dem_mean": -0.376304761904762,
+      "rep_mean": 0.4015454545454546,
+      "dem_std": 0.13774933229875502,
+      "rep_std": 0.1446163647569988,
+      "overlap": 0.13599999999999998,
+      "n_dem": 210,
+      "n_rep": 231
+    },
+    "defection": {
+      "n_defectors": 224,
+      "pct_defectors": 0.5079365079365079
+    }
+  },
+  "106": {
+    "congress": 106,
+    "n_members": 437,
+    "n_rollcalls": 1209,
+    "spectral": {
+      "fiedler": 0.7063596683434885,
+      "n_nodes": 437,
+      "n_edges": 83144,
+      "density": 0.8727562824092541,
+      "mean_degree": 380.5217391304348
+    },
+    "polarization": {
+      "party_distance": 0.7771644240442657,
+      "dem_mean": -0.3728028169014085,
+      "rep_mean": 0.4043616071428571,
+      "dem_std": 0.13880143750371582,
+      "rep_std": 0.14673989545738972,
+      "overlap": 0.13599999999999998,
+      "n_dem": 213,
+      "n_rep": 224
+    },
+    "defection": {
+      "n_defectors": 173,
+      "pct_defectors": 0.39588100686498856
+    }
+  },
+  "107": {
+    "congress": 107,
+    "n_members": 436,
+    "n_rollcalls": 543,
+    "spectral": {
+      "fiedler": 0.8430657266033662,
+      "n_nodes": 436,
+      "n_edges": 89802,
+      "density": 0.9469788041758938,
+      "mean_degree": 411.9357798165138
+    },
+    "polarization": {
+      "party_distance": 0.7860159198113208,
+      "dem_mean": -0.3775471698113207,
+      "rep_mean": 0.40846875000000005,
+      "dem_std": 0.13408865217807744,
+      "rep_std": 0.1467799583263827,
+      "overlap": 0.114,
+      "n_dem": 212,
+      "n_rep": 224
+    },
+    "defection": {
+      "n_defectors": 106,
+      "pct_defectors": 0.24311926605504589
+    }
+  },
+  "108": {
+    "congress": 108,
+    "n_members": 439,
+    "n_rollcalls": 1218,
+    "spectral": {
+      "fiedler": 0.5388559576332737,
+      "n_nodes": 439,
+      "n_edges": 74553,
+      "density": 0.7754548007613817,
+      "mean_degree": 339.6492027334852
+    },
+    "polarization": {
+      "party_distance": 0.7929388111888113,
+      "dem_mean": -0.3762115384615385,
+      "rep_mean": 0.4167272727272728,
+      "dem_std": 0.1327587946584768,
+      "rep_std": 0.14257410647198504,
+      "overlap": 0.0,
+      "n_dem": 208,
+      "n_rep": 231
+    },
+    "defection": {
+      "n_defectors": 64,
+      "pct_defectors": 0.14578587699316628
+    }
+  },
+  "109": {
+    "congress": 109,
+    "n_members": 437,
+    "n_rollcalls": 1210,
+    "spectral": {
+      "fiedler": 0.42208011947384877,
+      "n_nodes": 437,
+      "n_edges": 67543,
+      "density": 0.7089937648269057,
+      "mean_degree": 309.1212814645309
+    },
+    "polarization": {
+      "party_distance": 0.8098224984200548,
+      "dem_mean": -0.3870693069306931,
+      "rep_mean": 0.42275319148936175,
+      "dem_std": 0.12378772611670115,
+      "rep_std": 0.14341544599306194,
+      "overlap": 0.0,
+      "n_dem": 202,
+      "n_rep": 235
+    },
+    "defection": {
+      "n_defectors": 96,
+      "pct_defectors": 0.21967963386727687
+    }
+  },
+  "110": {
+    "congress": 110,
+    "n_members": 451,
+    "n_rollcalls": 1865,
+    "spectral": {
+      "fiedler": 0.23840087095412693,
+      "n_nodes": 451,
+      "n_edges": 62445,
+      "density": 0.6153732446415373,
+      "mean_degree": 276.9179600886918
+    },
+    "polarization": {
+      "party_distance": 0.7998135526055083,
+      "dem_mean": -0.3629591836734694,
+      "rep_mean": 0.43685436893203894,
+      "dem_std": 0.1392561227443253,
+      "rep_std": 0.14801895101490622,
+      "overlap": 0.0,
+      "n_dem": 245,
+      "n_rep": 206
+    },
+    "defection": {
+      "n_defectors": 82,
+      "pct_defectors": 0.18181818181818182
+    }
+  },
+  "111": {
+    "congress": 111,
+    "n_members": 450,
+    "n_rollcalls": 1647,
+    "spectral": {
+      "fiedler": 0.7370051865676244,
+      "n_nodes": 450,
+      "n_edges": 90629,
+      "density": 0.8970947785201683,
+      "mean_degree": 402.79555555555555
+    },
+    "polarization": {
+      "party_distance": 0.7989422238595199,
+      "dem_mean": -0.34268539325842695,
+      "rep_mean": 0.4562568306010929,
+      "dem_std": 0.14905356316777585,
+      "rep_std": 0.1464988656768363,
+      "overlap": 0.0,
+      "n_dem": 267,
+      "n_rep": 183
+    },
+    "defection": {
+      "n_defectors": 47,
+      "pct_defectors": 0.10444444444444445
+    }
+  },
+  "112": {
+    "congress": 112,
+    "n_members": 442,
+    "n_rollcalls": 1602,
+    "spectral": {
+      "fiedler": 0.07281314759435442,
+      "n_nodes": 442,
+      "n_edges": 52472,
+      "density": 0.5383897148603031,
+      "mean_degree": 237.42986425339367
+    },
+    "polarization": {
+      "party_distance": 0.8624497177244246,
+      "dem_mean": -0.39473366834170853,
+      "rep_mean": 0.46771604938271605,
+      "dem_std": 0.12148397508777106,
+      "rep_std": 0.14610604705218627,
+      "overlap": 0.0,
+      "n_dem": 199,
+      "n_rep": 243
+    },
+    "defection": {
+      "n_defectors": 88,
+      "pct_defectors": 0.19909502262443438
+    }
+  },
+  "113": {
+    "congress": 113,
+    "n_members": 439,
+    "n_rollcalls": 1202,
+    "spectral": {
+      "fiedler": 0.032876960950623396,
+      "n_nodes": 439,
+      "n_edges": 49641,
+      "density": 0.5163353824070895,
+      "mean_degree": 226.15489749430523
+    },
+    "polarization": {
+      "party_distance": 0.8648872665747587,
+      "dem_mean": -0.38383663366336634,
+      "rep_mean": 0.4810506329113924,
+      "dem_std": 0.11370980105511798,
+      "rep_std": 0.14617839792044093,
+      "overlap": 0.0,
+      "n_dem": 202,
+      "n_rep": 237
+    },
+    "defection": {
+      "n_defectors": 59,
+      "pct_defectors": 0.13439635535307518
+    }
+  },
+  "114": {
+    "congress": 114,
+    "n_members": 436,
+    "n_rollcalls": 1322,
+    "spectral": {
+      "fiedler": 0.010109325984565504,
+      "n_nodes": 436,
+      "n_edges": 48590,
+      "density": 0.5123905936939787,
+      "mean_degree": 222.88990825688074
+    },
+    "polarization": {
+      "party_distance": 0.87365966026081,
+      "dem_mean": -0.3942765957446809,
+      "rep_mean": 0.47938306451612905,
+      "dem_std": 0.10618093793096954,
+      "rep_std": 0.1467749073338723,
+      "overlap": 0.0,
+      "n_dem": 188,
+      "n_rep": 248
+    },
+    "defection": {
+      "n_defectors": 39,
+      "pct_defectors": 0.08944954128440367
+    }
+  },
+  "115": {
+    "congress": 115,
+    "n_members": 444,
+    "n_rollcalls": 1207,
+    "spectral": {
+      "fiedler": 0.04207210409465363,
+      "n_nodes": 444,
+      "n_edges": 51386,
+      "density": 0.5225021861590711,
+      "mean_degree": 231.46846846846847
+    },
+    "polarization": {
+      "party_distance": 0.8746483642703313,
+      "dem_mean": -0.3880402010050251,
+      "rep_mean": 0.48660816326530615,
+      "dem_std": 0.10790610282599995,
+      "rep_std": 0.14625792682056893,
+      "overlap": 0.0,
+      "n_dem": 199,
+      "n_rep": 245
+    },
+    "defection": {
+      "n_defectors": 32,
+      "pct_defectors": 0.07207207207207207
+    }
+  },
+  "116": {
+    "congress": 116,
+    "n_members": 446,
+    "n_rollcalls": 952,
+    "spectral": {
+      "fiedler": 0.03500874994548604,
+      "n_nodes": 446,
+      "n_edges": 51251,
+      "density": 0.5164609260845467,
+      "mean_degree": 229.8251121076233
+    },
+    "polarization": {
+      "party_distance": 0.8742724919093849,
+      "dem_mean": -0.3719666666666666,
+      "rep_mean": 0.5023058252427184,
+      "dem_std": 0.11569287167131584,
+      "rep_std": 0.137621256913371,
+      "overlap": 0.0,
+      "n_dem": 240,
+      "n_rep": 206
+    },
+    "defection": {
+      "n_defectors": 58,
+      "pct_defectors": 0.13004484304932734
+    }
+  },
+  "117": {
+    "congress": 117,
+    "n_members": 447,
+    "n_rollcalls": 996,
+    "spectral": {
+      "fiedler": 0.08586233922649636,
+      "n_nodes": 447,
+      "n_edges": 53380,
+      "density": 0.5355082713857204,
+      "mean_degree": 238.83668903803132
+    },
+    "polarization": {
+      "party_distance": 0.8813890468562275,
+      "dem_mean": -0.3776299559471366,
+      "rep_mean": 0.5037590909090909,
+      "dem_std": 0.11104868393620348,
+      "rep_std": 0.14734409683424995,
+      "overlap": 0.0,
+      "n_dem": 227,
+      "n_rep": 220
+    },
+    "defection": {
+      "n_defectors": 56,
+      "pct_defectors": 0.12527964205816555
+    }
+  },
+  "118": {
+    "congress": 118,
+    "n_members": 451,
+    "n_rollcalls": 1235,
+    "spectral": {
+      "fiedler": 0.03179541809984811,
+      "n_nodes": 451,
+      "n_edges": 51710,
+      "density": 0.5095836412909583,
+      "mean_degree": 229.31263858093126
+    },
+    "polarization": {
+      "party_distance": 0.8925958882549675,
+      "dem_mean": -0.3843393665158371,
+      "rep_mean": 0.5082565217391304,
+      "dem_std": 0.10889730201859464,
+      "rep_std": 0.15519168883530418,
+      "overlap": 0.0,
+      "n_dem": 221,
+      "n_rep": 230
+    },
+    "defection": {
+      "n_defectors": 85,
+      "pct_defectors": 0.188470066518847
+    }
+  }
+}

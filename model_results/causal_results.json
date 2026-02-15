@@ -1,0 +1,62 @@
+{
+  "tea_party": {
+    "label": "Tea Party Wave (2010)",
+    "before_congresses": [
+      110,
+      111
+    ],
+    "after_congresses": [
+      112,
+      113
+    ],
+    "fiedler_before": 0.4877030287608757,
+    "fiedler_after": 0.05284505427248891,
+    "fiedler_diff": -0.43485797448838676,
+    "distance_before": 0.7993778882325141,
+    "distance_after": 0.8636684921495916,
+    "distance_diff": 0.06429060391707753,
+    "overlap_before": 0.0,
+    "overlap_after": 0.0,
+    "overlap_diff": 0.0
+  },
+  "trump": {
+    "label": "Trump Era (2016)",
+    "before_congresses": [
+      113,
+      114
+    ],
+    "after_congresses": [
+      115,
+      116
+    ],
+    "fiedler_before": 0.02149314346759445,
+    "fiedler_after": 0.03854042702006984,
+    "fiedler_diff": 0.017047283552475388,
+    "distance_before": 0.8692734634177843,
+    "distance_after": 0.8744604280898581,
+    "distance_diff": 0.005186964672073802,
+    "overlap_before": 0.0,
+    "overlap_after": 0.0,
+    "overlap_diff": 0.0
+  },
+  "post_trump": {
+    "label": "Post-Trump (2020)",
+    "before_congresses": [
+      115,
+      116
+    ],
+    "after_congresses": [
+      117,
+      118
+    ],
+    "fiedler_before": 0.03854042702006984,
+    "fiedler_after": 0.058828878663172234,
+    "fiedler_diff": 0.020288451643102397,
+    "distance_before": 0.8744604280898581,
+    "distance_after": 0.8869924675555976,
+    "distance_diff": 0.012532039465739442,
+    "overlap_before": 0.0,
+    "overlap_after": 0.0,
+    "overlap_diff": 0.0
+  }
+}
