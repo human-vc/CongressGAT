@@ -1,6 +1,6 @@
 # CongressGAT: Graph Attention Networks for Predicting Legislative Defection
 
-This repository contains code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995--2024."**
+This repository contains code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995-2024."**
 
 ## Overview
 
@@ -16,13 +16,13 @@ We construct temporal voting networks for every session of the U.S. House from t
 
 ```
 CongressionalGNN/
-    pipeline_full.py          # Data processing, graph construction, spectral analysis
-    model_gat.py              # GAT model, training, baselines, attention analysis
-    generate_final_figures.py # Publication-quality figure generation
-    data/                     # Voteview CSV files (members only; votes excluded for size)
-    results_final/            # Experiment results (JSON)
-    figures_final/            # Publication figures (PDF and PNG)
-    paper_final/              # LaTeX source and compiled PDF
+    pipeline_full.py          - Data processing, graph construction, spectral analysis
+    model_gat.py              - GAT model, training, baselines, attention analysis
+    generate_final_figures.py - Publication-quality figure generation
+    data/                     - Voteview CSV files (members only; votes excluded for size)
+    results_final/            - Experiment results (JSON)
+    figures_final/            - Figures (PDF and PNG)
+    paper_final/              - LaTeX source and compiled PDF
 ```
 
 ## Data
@@ -41,9 +41,9 @@ Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Memb
 ## Usage
 
 ```bash
-python pipeline_full.py           # Process all congresses
-python model_gat.py               # Train GAT and baselines
-python generate_final_figures.py  # Generate figures
+python pipeline_full.py           - Process all congresses
+python model_gat.py               - Train GAT and baselines
+python generate_final_figures.py  - Generate figures
 ```
 
 ## Citation
