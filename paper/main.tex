@@ -253,6 +253,7 @@ Of the GAT's correct defection predictions at the 10\% threshold, approximately 
     \label{fig:roc}
 \end{figure}
 
+\FloatBarrier
 \subsection{Coalition Detection}
 
 Coalition detection is the easy task here. Given extreme polarization, the GAT achieves F1 $>$ 0.97 on all held-out Congresses. Drop party ID from the features, and it still hits F1 $>$ 0.94. Network structure alone suffices for partisan classification.
@@ -357,6 +358,8 @@ Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddin
 
 Beyond aggregate performance metrics, the model provides interpretable predictions at the individual legislator level. Table~\ref{tab:defectors} presents the members most frequently predicted as likely defectors across the test Congresses, alongside their actual defection status.
 
+The model excels at identifying members who defect on specific legislation but maintain mainstream party positions. It systematically underpredicts for ideological mavericks who consistently vote against their party. Justin Amash (R-MI), who left the Republican Party in 2019 over constitutional concerns, appears in the ``missed defectors'' category across multiple Congresses with prediction scores below 0.5 despite above-threshold defection rates. His DW-NOMINATE scores reveal why: Amash scores 0.654 on dimension-1 (ideological conservatism) but -0.757 on dimension-2 (libertarian orientation). The first dimension places him squarely in the conservative camp, while the second dimension captures his heterodox voting patterns that DW-NOMINATE alone cannot fully represent. The GAT, trained to predict defection from network structure and voting agreement, learned that members with stable co-voting patterns are less likely to defect. Amash's consistency across Congresses made him structurally predictable as a reliable partisan, even as his actual voting record contained frequent cross-party moments. This is a limitation of the network structure approach: members whose voting patterns are consistently cross-party create stable edges in the co-voting graph that the attention mechanism learns to deprioritize. Their consistency, paradoxically, makes them harder to detect. Removing DW-NOMINATE from the input features (Table~\ref{tab:ablation}, row 4) improves defection AUC slightly but at the cost of F1 collapsing entirely, suggesting that ideological priors remain valuable for detecting the harder cases that network structure alone misses.
+
 \begin{table}[!htbp]
 \centering
 {\footnotesize
@@ -389,8 +392,6 @@ SANFORD, Mark & R-SC & 115 & 0.394 & 0.151 \\
 \end{tabular}
 }
 \end{table}
-
-The model excels at identifying members who defect on specific legislation but maintain mainstream party positions. It systematically underpredicts for ideological mavericks who consistently vote against their party. Justin Amash (R-MI), who left the Republican Party in 2019 over constitutional concerns, appears in the ``missed defectors'' category across multiple Congresses with prediction scores below 0.5 despite above-threshold defection rates. His DW-NOMINATE scores reveal why: Amash scores 0.654 on dimension-1 (ideological conservatism) but -0.757 on dimension-2 (libertarian orientation). The first dimension places him squarely in the conservative camp, while the second dimension captures his heterodox voting patterns that DW-NOMINATE alone cannot fully represent. The GAT, trained to predict defection from network structure and voting agreement, learned that members with stable co-voting patterns are less likely to defect. Amash's consistency across Congresses made him structurally predictable as a reliable partisan, even as his actual voting record contained frequent cross-party moments. This is a limitation of the network structure approach: members whose voting patterns are consistently cross-party create stable edges in the co-voting graph that the attention mechanism learns to deprioritize. Their consistency, paradoxically, makes them harder to detect. Removing DW-NOMINATE from the input features (Table~\ref{tab:ablation}, row 4) improves defection AUC slightly but at the cost of F1 collapsing entirely, suggesting that ideological priors remain valuable for detecting the harder cases that network structure alone misses.
 
 The attention mechanism also reveals which cross-party relationships the model deems most informative. Table~\ref{tab:cross_edges} presents the highest-attention cross-party edges in each test Congress.
 
