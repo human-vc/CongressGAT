@@ -31,9 +31,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Node Features}{4}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Spectral Analysis}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Algebraic Connectivity and Polarization}{4}{subsection.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Congressional polarization metrics across selected Congresses. The Fiedler value captures network connectivity; party distance measures ideological divergence. Both deteriorate, but at different rates and with different dynamics.}}{5}{table.caption.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Congressional polarization metrics across selected Congresses. The Fiedler value captures network connectivity; party distance measures ideological divergence. Both deteriorate, but at different rates and with different dynamics.}}{4}{table.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:polarization}{{1}{5}{Congressional polarization metrics across selected Congresses. The Fiedler value captures network connectivity; party distance measures ideological divergence. Both deteriorate, but at different rates and with different dynamics}{table.caption.1}{}}
+\newlabel{tab:polarization}{{1}{4}{Congressional polarization metrics across selected Congresses. The Fiedler value captures network connectivity; party distance measures ideological divergence. Both deteriorate, but at different rates and with different dynamics}{table.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Density Without Connectivity}{5}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Validation Against DW-NOMINATE}{5}{subsection.4.3}\protected@file@percent }
 \citation{velickovic2018}
@@ -43,8 +43,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Graph Attention Network}{6}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Temporal Attention}{7}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Prediction Heads}{7}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Experimental Setup}{8}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Training and Evaluation}{8}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Experimental Setup}{7}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Training and Evaluation}{7}{subsection.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Baselines}{8}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}Results}{8}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Defection Prediction}{8}{subsection.7.1}\protected@file@percent }
@@ -56,7 +56,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Left: GAT attention weights for the 115th Congress, with members sorted by ideology. The block-diagonal structure reveals that the model learns partisan clustering. Right: Distribution of attention weights by party alignment. Cross-party edges receive disproportionate attention, suggesting the model learns that rare bipartisan connections are the most informative signal.}}{10}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:attention}{{3}{10}{Left: GAT attention weights for the 115th Congress, with members sorted by ideology. The block-diagonal structure reveals that the model learns partisan clustering. Right: Distribution of attention weights by party alignment. Cross-party edges receive disproportionate attention, suggesting the model learns that rare bipartisan connections are the most informative signal}{figure.caption.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Polarization Prediction}{10}{subsection.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Defection Threshold Sensitivity}{11}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Defection Threshold Sensitivity}{10}{subsection.7.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Defection prediction performance across thresholds. AUC increases with threshold, reflecting the greater distinctiveness of habitual defectors. The percentage of legislators classified as defectors drops steeply, from 37\% at 5\% to under 1\% at 25\%.}}{11}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:sensitivity}{{4}{11}{Defection prediction performance across thresholds. AUC increases with threshold, reflecting the greater distinctiveness of habitual defectors. The percentage of legislators classified as defectors drops steeply, from 37\% at 5\% to under 1\% at 25\%}{figure.caption.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {8}Structural Shocks to Congressional Cooperation}{11}{section.8}\protected@file@percent }
@@ -67,11 +67,16 @@
 \newlabel{fig:network}{{6}{13}{Co-voting networks for the 114th Congress (left) and 103rd Congress (right), with members positioned by DW-NOMINATE scores. Red edges indicate cross-party agreement above 65\%. The near-absence of red edges in the 114th Congress visualizes the structural disconnection that the Fiedler value quantifies}{figure.caption.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces t-SNE projections of learned node embeddings for the 104th (1995), 112th (2011), and 117th (2021) Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis. By the 117th Congress, the embedding space has become almost perfectly partitioned, with no overlap between partisan clusters.}}{14}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:embeddings}{{7}{14}{t-SNE projections of learned node embeddings for the 104th (1995), 112th (2011), and 117th (2021) Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis. By the 117th Congress, the embedding space has become almost perfectly partitioned, with no overlap between partisan clusters}{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Limitations}{14}{section.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}Conclusion}{14}{section.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Individual-Level Analysis: Defection Predictions and Cross-Party Attention}{14}{section.10}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicted defector rankings for selected legislators across held-out Congresses. The model identifies high-risk members with notable accuracy, though habitual mavericks like Justin Amash (R-MI) and Thomas Massie (R-KY) frequently fall below the prediction threshold despite high defection rates.}}{14}{table.caption.10}\protected@file@percent }
+\newlabel{tab:defectors}{{3}{14}{Predicted defector rankings for selected legislators across held-out Congresses. The model identifies high-risk members with notable accuracy, though habitual mavericks like Justin Amash (R-MI) and Thomas Massie (R-KY) frequently fall below the prediction threshold despite high defection rates}{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Top cross-party attention edges for held-out Congresses. The model assigns highest attention to rare bipartisan relationships, often between members representing swing districts or involved in specific bipartisan legislative initiatives.}}{15}{table.caption.11}\protected@file@percent }
+\newlabel{tab:cross_edges}{{4}{15}{Top cross-party attention edges for held-out Congresses. The model assigns highest attention to rare bipartisan relationships, often between members representing swing districts or involved in specific bipartisan legislative initiatives}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Limitations}{15}{section.11}\protected@file@percent }
 \bibstyle{apalike}
 \bibdata{references}
 \bibcite{andris2015}{{1}{2015}{{Andris et~al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Conclusion}{16}{section.12}\protected@file@percent }
 \bibcite{cbo2013}{{2}{2013}{{Congressional Budget Office}}{{}}}
 \bibcite{fiedler1973}{{3}{1973}{{Fiedler}}{{}}}
 \bibcite{fowler2006a}{{4}{2006}{{Fowler}}{{}}}
@@ -88,5 +93,5 @@
 \bibcite{velickovic2018}{{15}{2018}{{Veli{\v {c}}kovi{\'c} et~al.}}{{}}}
 \bibcite{waugh2009}{{16}{2009}{{Waugh et~al.}}{{}}}
 \bibcite{yang2020}{{17}{2016}{{Yang et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Code and Data Availability}{16}{appendix.A}\protected@file@percent }
-\gdef \@abspage@last{16}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Code and Data Availability}{18}{appendix.A}\protected@file@percent }
+\gdef \@abspage@last{18}
