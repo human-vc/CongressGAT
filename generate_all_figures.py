@@ -118,7 +118,7 @@ def draw_network_panel(ax, congress, title):
     ax.set_xlim(-1.1, 1.1)
     n_cross = len([1 for i, j in [(i,j) for i in range(n) for j in range(i+1,n) if adj[i,j]>0] if parties[i]!=parties[j]]) if n < 100 else len(cross_edges)
     ax.text(0.98, 0.02, f'Cross-party edges: {len(cross_edges)}', transform=ax.transAxes,
-           ha='right', va='bottom', fontsize=7, color='#999999')
+           ha='right', va='bottom', fontsize=8, fontweight='bold', color='black')
 
 
 def figure1_network():
