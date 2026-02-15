@@ -83,6 +83,6 @@ Waugh, A.~S., Pei, L., Fowler, J.~H., Mucha, P.~J., and Porter, M.~A. (2009).
 \bibitem[Yang et~al., 2016]{yang2020}
 Yang, Z., Cohen, W.~W., and Salakhutdinov, R. (2016).
 \newblock Revisiting semi-supervised learning with graph embeddings.
-\newblock {\em Proceedings of the International Conference on Machine Learning}.
+\newblock In {\em Proceedings of the International Conference on Machine Learning}.
 
 \end{thebibliography}
