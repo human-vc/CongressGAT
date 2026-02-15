@@ -45,6 +45,7 @@
 \date{}
 
 \begin{document}
+\raggedbottom
 
 \maketitle
 
@@ -337,24 +338,22 @@ The boundary condition is clear: network models capture policy-driven fractures 
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{../paper_figures/fig1_network.pdf}
+    \includegraphics[width=0.9\textwidth]{../paper_figures/fig1_network.pdf}
     \caption{Co-voting networks for the 114th Congress (left) and 103rd Congress (right), with members positioned by DW-NOMINATE scores. Red edges indicate cross-party agreement above the 50\% threshold used throughout the analysis. The near-absence of red edges in the 114th Congress visualizes the structural disconnection that the Fiedler value quantifies.}
     \label{fig:network}
 \end{figure}
 
-Two decades separate the networks in Figure~\ref{fig:network}. In the 103rd Congress (1993--1995), cross-party edges are visible throughout the ideological spectrum. By the 114th (2015--2017), these bridges have essentially vanished.
+Two decades separate the networks in Figure~\ref{fig:network}. In the 103rd Congress (1993--1995), cross-party edges are visible throughout the ideological spectrum, connecting moderate Democrats and Republicans who found common ground on at least half of contested legislation. By the 114th (2015--2017), these bridges have essentially vanished. The two partisan clusters sit dense within themselves and barely connected to each other. The 103rd network contains 429 cross-party edges; the 114th contains zero.
+
+Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddings for three Congresses spanning two decades. In the 104th Congress (1995), the two parties still overlap substantially in embedding space, with moderate members from both parties occupying shared regions. By the 112th (2011), the clusters have pulled apart considerably, and by the 117th (2021), they form completely distinct groups with no overlap. The model has learned, from network structure and voting patterns, a representation that makes partisan identity almost perfectly separable.
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{../paper_figures/fig7_embeddings.pdf}
-    \vspace{-0.5em}
+    \includegraphics[width=0.9\textwidth]{../paper_figures/fig7_embeddings.pdf}
     \caption{t-SNE projections of learned node embeddings for the 104th (1995), 112th (2011), and 117th (2021) Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis.}
     \label{fig:embeddings}
 \end{figure}
 
-Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddings for three Congresses. In the 104th Congress (1995), the two parties still overlap substantially in embedding space. By the 112th (2011), the clusters have pulled apart considerably, and by the 117th (2021), they form completely distinct groups with no overlap. The model has learned, from network structure and voting patterns, a representation that makes partisan identity almost perfectly separable.
-
-\vspace{-0.5em}
 \section{Individual-Level Analysis: Defection Predictions and Cross-Party Attention}
 
 Beyond aggregate performance metrics, the model provides interpretable predictions at the individual legislator level. Table~\ref{tab:defectors} presents the members most frequently predicted as likely defectors across the test Congresses, alongside their actual defection status.
