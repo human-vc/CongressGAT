@@ -1,84 +1,51 @@
-# CongressGAT: Tracking Congressional Polarization with Graph Attention Networks
+# CongressGAT: Graph Attention Networks for Predicting Legislative Defection
 
-A comprehensive analysis of U.S. congressional polarization using graph neural networks, spanning 19 Congresses (100th through 118th, 1987-2025).
+This repository contains code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995--2024."**
 
 ## Overview
 
-This repository contains the code, data processing pipeline, and paper source for a study that:
+We construct temporal voting networks for every session of the U.S. House from the 104th through 118th Congress (1995-2024) and apply Graph Attention Networks (GATs) to predict which members will defect from their party line.
 
-1. Constructs co-voting agreement networks for every Congress from the 100th through the 118th
-2. Performs spectral analysis revealing a 94%+ decline in network connectivity over three decades
-3. Trains a Graph Attention Network with temporal attention for three prediction tasks:
-   - **Defection forecasting** (AUC: 0.908 on held-out Congresses)
-   - **Coalition detection** (F1 > 0.97)
-   - **Polarization trajectory prediction**
-4. Identifies the Tea Party wave of 2010 as the single largest structural shock to congressional cooperation
-
-## Key Finding
-
-The Fiedler value (algebraic connectivity) of the House co-voting network has collapsed from 0.534 in 1987 to 0.032 in 2023. The Tea Party wave alone accounts for roughly 87% of this decline.
+**Key results:**
+- GAT achieves F1=0.75 and AUC=0.88 at 5% defection threshold, outperforming logistic regression (F1=0.60), random forests (F1=0.63), and naive baselines (F1=0.59)
+- Fiedler vector of voting networks correlates with DW-NOMINATE at r>0.97
+- Attention mechanism reveals same-party connections receive 200x more weight than cross-party ties
+- Tea Party wave of 2010 produced a permanent 40% decline in cross-party agreement
 
 ## Repository Structure
 
 ```
-CongressGAT/
-├── data/                    # Voteview roll-call data (H100-H118)
-├── pipeline_v2.py           # Data processing and graph construction
-├── model.py                 # GAT architecture and training
-├── generate_all_figures.py  # Publication-quality figure generation
-├── paper/
-│   ├── main.tex            # Paper source
-│   └── references.bib      # Bibliography
-├── paper_figures/           # Generated figures (PDF and PNG)
-├── pipeline_results/        # Intermediate data (agreement matrices, features)
-└── model_results/           # Trained model and evaluation results
+CongressionalGNN/
+    pipeline_full.py          # Data processing, graph construction, spectral analysis
+    model_gat.py              # GAT model, training, baselines, attention analysis
+    generate_final_figures.py # Publication-quality figure generation
+    data/                     # Voteview CSV files (members only; votes excluded for size)
+    results_final/            # Experiment results (JSON)
+    figures_final/            # Publication figures (PDF and PNG)
+    paper_final/              # LaTeX source and compiled PDF
 ```
 
 ## Data
 
-Roll-call voting records from [Voteview](https://voteview.com/) (Lewis et al., 2023). Each Congress includes:
-- Vote records for all House roll calls
-- Member information including party affiliation and DW-NOMINATE scores
+Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Member CSVs are included; vote CSVs are excluded due to size (~500MB total). Download them from:
+- `https://voteview.com/static/data/out/votes/H{num}_votes.csv`
+- `https://voteview.com/static/data/out/members/H{num}_members.csv`
 
 ## Requirements
 
 - Python 3.10+
-- PyTorch
-- PyTorch Geometric
-- NumPy, Pandas, SciPy, scikit-learn
-- Matplotlib (for figures)
+- PyTorch 2.x
+- PyTorch Geometric 2.x
+- pandas, numpy, scipy, scikit-learn, matplotlib
 
 ## Usage
 
 ```bash
-python pipeline_v2.py          # Process all Congresses
-python model.py                # Train GAT and run baselines
-python generate_all_figures.py # Generate figures
-```
-
-## Paper
-
-The paper can be compiled with pdflatex:
-
-```bash
-cd paper
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+python pipeline_full.py           # Process all congresses
+python model_gat.py               # Train GAT and baselines
+python generate_final_figures.py  # Generate figures
 ```
 
 ## Citation
 
-If you use this code or data, please cite:
-
-```bibtex
-@article{congressgat2025,
-    title={The Geometry of Gridlock: Tracking Congressional Polarization with Graph Attention Networks},
-    year={2025}
-}
-```
-
-## License
-
-MIT
+If you use this code or data, please cite the paper.

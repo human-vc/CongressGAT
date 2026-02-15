@@ -1,0 +1,64 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{lewis2023voteview}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Data and Graph Construction}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Voteview Roll-Call Data}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Agreement Networks}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Node Features}{2}{subsection.2.3}\protected@file@percent }
+\citation{velickovic2018graph}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Defection Labels}{3}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Spectral Analysis of Voting Networks}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The Fiedler Vector as Ideology}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Algebraic Connectivity and Polarization}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}The GAT Model}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architecture}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Training Protocol}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Polarization Trends}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Polarization and defection trends across congresses. Cohesion measures the average pairwise agreement rate within each party. Cross-party agreement is the average agreement rate between a Democrat and a Republican. Defection rate is the share of roll calls on which a member voted against their party's majority.}}{5}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:polarization}{{1}{5}{Polarization and defection trends across congresses. Cohesion measures the average pairwise agreement rate within each party. Cross-party agreement is the average agreement rate between a Democrat and a Republican. Defection rate is the share of roll calls on which a member voted against their party's majority}{table.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Polarization trends in the U.S.\ House, 104th--118th Congress. (a) Intra-party agreement rates show Democratic cohesion rising sharply while Republican cohesion remains high and stable. (b) Cross-party agreement declines precipitously after the Tea Party wave of 2010. (c) The Fiedler vector of the voting network correlates almost perfectly with DW-NOMINATE ideology scores in congresses with connected Laplacians.}}{5}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:polarization}{{1}{5}{Polarization trends in the U.S.\ House, 104th--118th Congress. (a) Intra-party agreement rates show Democratic cohesion rising sharply while Republican cohesion remains high and stable. (b) Cross-party agreement declines precipitously after the Tea Party wave of 2010. (c) The Fiedler vector of the voting network correlates almost perfectly with DW-NOMINATE ideology scores in congresses with connected Laplacians}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Defection Prediction}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Defection prediction results on held-out Congresses 115--117 at the 10\% threshold. The GAT outperforms all baselines on F1, AUC, and precision, while maintaining competitive accuracy.}}{6}{table.caption.3}\protected@file@percent }
+\newlabel{tab:model_comparison}{{2}{6}{Defection prediction results on held-out Congresses 115--117 at the 10\% threshold. The GAT outperforms all baselines on F1, AUC, and precision, while maintaining competitive accuracy}{table.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Model performance across defection thresholds. The CongressGAT (green) consistently outperforms baselines on F1 and AUC, with the advantage most pronounced at the 5\% and 10\% thresholds where the minority class is largest.}}{6}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:model_comparison}{{2}{6}{Model performance across defection thresholds. The CongressGAT (green) consistently outperforms baselines on F1 and AUC, with the advantage most pronounced at the 5\% and 10\% thresholds where the minority class is largest}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Threshold Sensitivity}{6}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Threshold sensitivity analysis. The GAT maintains the highest F1 score across all defection thresholds, with the largest relative advantage at 5\% and 10\%.}}{7}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:threshold}{{3}{7}{Threshold sensitivity analysis. The GAT maintains the highest F1 score across all defection thresholds, with the largest relative advantage at 5\% and 10\%}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Attention Analysis}{7}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces GAT attention weights partitioned by party alignment. (a) Same-party connections receive orders of magnitude more attention than cross-party ties across all congresses. (b) The ratio of same-party to cross-party attention exceeds 100 in every session.}}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:attention}{{4}{7}{GAT attention weights partitioned by party alignment. (a) Same-party connections receive orders of magnitude more attention than cross-party ties across all congresses. (b) The ratio of same-party to cross-party attention exceeds 100 in every session}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Feature Importance}{8}{subsection.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Random forest feature importance for defection prediction at the 10\% threshold. Previous defection rate and ideological positioning dominate, while raw party label contributes little.}}{8}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:features}{{5}{8}{Random forest feature importance for defection prediction at the 10\% threshold. Previous defection rate and ideological positioning dominate, while raw party label contributes little}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Causal Analysis: Tea Party and Trump Effects}{8}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The Tea Party Effect}{8}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Trump Era}{8}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Difference-in-differences analysis around two political shocks. (a) The Tea Party wave produced a sharp, persistent decline in cross-party agreement. (b) The Trump era shows a modest rebound from a low baseline, without reversing the structural break.}}{9}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:causal}{{6}{9}{Difference-in-differences analysis around two political shocks. (a) The Tea Party wave produced a sharp, persistent decline in cross-party agreement. (b) The Trump era shows a modest rebound from a low baseline, without reversing the structural break}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Spectral Structure Over Time}{9}{section.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Eigenvalue spectra of the normalized graph Laplacian for selected congresses. The large spectral gap between the first and second eigenvalues reflects the dominance of partisan structure.}}{9}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:spectral}{{7}{9}{Eigenvalue spectra of the normalized graph Laplacian for selected congresses. The large spectral gap between the first and second eigenvalues reflects the dominance of partisan structure}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{9}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Limitations}{10}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{10}{section.9}\protected@file@percent }
+\bibstyle{apalike}
+\bibcite{lewis2023voteview}{{1}{2023}{{Lewis et al.}}{{}}}
+\bibcite{poole1985spatial}{{2}{1985}{{Poole and Rosenthal}}{{}}}
+\bibcite{velickovic2018graph}{{3}{2018}{{Veli\v {c}kovi\'{c} et al.}}{{}}}
+\bibcite{kipf2017semi}{{4}{2017}{{Kipf and Welling}}{{}}}
+\bibcite{mccarty2006polarized}{{5}{2006}{{McCarty et al.}}{{}}}
+\bibcite{theriault2008party}{{6}{2008}{{Theriault}}{{}}}
+\bibcite{lee2009beyond}{{7}{2009}{{Lee}}{{}}}
+\bibcite{fowler2006connecting}{{8}{2006}{{Fowler}}{{}}}
+\bibcite{zhang2021graph}{{9}{2021}{{Zhang et al.}}{{}}}
+\bibcite{hamilton2017inductive}{{10}{2017}{{Hamilton et al.}}{{}}}
+\bibcite{putnam2000bowling}{{11}{2000}{{Putnam}}{{}}}
+\bibcite{fiedler1973algebraic}{{12}{1973}{{Fiedler}}{{}}}
+\gdef \@abspage@last{11}
