@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)  15 FEB 2026 01:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)  15 FEB 2026 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -397,49 +397,49 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <../paper_figures/fig2_polarization.pdf, id=216, 715.20766pt x 353.55339pt>
 File: ../paper_figures/fig2_polarization.pdf Graphic file (type pdf)
 <use ../paper_figures/fig2_polarization.pdf>
-Package pdftex.def Info: ../paper_figures/fig2_polarization.pdf  used on input line 129.
+Package pdftex.def Info: ../paper_figures/fig2_polarization.pdf  used on input line 131.
 (pdftex.def)             Requested size: 452.9679pt x 223.92126pt.
  [6 <../paper_figures/fig2_polarization.pdf>] [7]
-Overfull \hbox (6.88416pt too wide) in paragraph at lines 208--209
+Overfull \hbox (6.88416pt too wide) in paragraph at lines 210--211
 \T1/cmr/m/n/10.95 The re-sults merit hon-est dis-cus-sion. The Ran-dom For-est base-line, with ac-cess to DW-NOMINATE
  []
 
-<../paper_figures/fig4_roc.pdf, id=319, 498.52248pt x 425.87607pt>
+[8]
+<../paper_figures/fig4_roc.pdf, id=324, 498.52248pt x 425.87607pt>
 File: ../paper_figures/fig4_roc.pdf Graphic file (type pdf)
 <use ../paper_figures/fig4_roc.pdf>
-Package pdftex.def Info: ../paper_figures/fig4_roc.pdf  used on input line 216.
+Package pdftex.def Info: ../paper_figures/fig4_roc.pdf  used on input line 218.
 (pdftex.def)             Requested size: 339.72592pt x 290.22873pt.
-[8]
-<../paper_figures/fig3_attention.pdf, id=326, 859.91827pt x 353.1914pt>
+ [9 <../paper_figures/fig4_roc.pdf>]
+<../paper_figures/fig3_attention.pdf, id=399, 859.91827pt x 353.1914pt>
 File: ../paper_figures/fig3_attention.pdf Graphic file (type pdf)
 <use ../paper_figures/fig3_attention.pdf>
-Package pdftex.def Info: ../paper_figures/fig3_attention.pdf  used on input line 229.
+Package pdftex.def Info: ../paper_figures/fig3_attention.pdf  used on input line 231.
 (pdftex.def)             Requested size: 452.9679pt x 186.04802pt.
- [9 <../paper_figures/fig4_roc.pdf>]
-<../paper_figures/fig5_sensitivity.pdf, id=402, 570.69774pt x 353.60608pt>
+ [10 <../paper_figures/fig3_attention.pdf>]
+<../paper_figures/fig5_sensitivity.pdf, id=482, 570.69774pt x 353.60608pt>
 File: ../paper_figures/fig5_sensitivity.pdf Graphic file (type pdf)
 <use ../paper_figures/fig5_sensitivity.pdf>
-Package pdftex.def Info: ../paper_figures/fig5_sensitivity.pdf  used on input line 246.
+Package pdftex.def Info: ../paper_figures/fig5_sensitivity.pdf  used on input line 250.
 (pdftex.def)             Requested size: 339.72592pt x 210.49805pt.
- [10 <../paper_figures/fig3_attention.pdf>]
-<../paper_figures/fig6_causal.pdf, id=485, 1004.41245pt x 317.20782pt>
+ [11 <../paper_figures/fig5_sensitivity.pdf>]
+<../paper_figures/fig6_causal.pdf, id=552, 1004.41245pt x 317.20782pt>
 File: ../paper_figures/fig6_causal.pdf Graphic file (type pdf)
 <use ../paper_figures/fig6_causal.pdf>
-Package pdftex.def Info: ../paper_figures/fig6_causal.pdf  used on input line 259.
+Package pdftex.def Info: ../paper_figures/fig6_causal.pdf  used on input line 263.
 (pdftex.def)             Requested size: 452.9679pt x 143.05197pt.
- [11 <../paper_figures/fig5_sensitivity.pdf>]
 <../paper_figures/fig1_network.pdf, id=553, 859.88066pt x 353.5377pt>
 File: ../paper_figures/fig1_network.pdf Graphic file (type pdf)
 <use ../paper_figures/fig1_network.pdf>
-Package pdftex.def Info: ../paper_figures/fig1_network.pdf  used on input line 274.
+Package pdftex.def Info: ../paper_figures/fig1_network.pdf  used on input line 278.
 (pdftex.def)             Requested size: 452.9679pt x 186.23584pt.
  [12 <../paper_figures/fig6_causal.pdf>]
 <../paper_figures/fig7_embeddings.pdf, id=625, 1004.47267pt x 317.63168pt>
 File: ../paper_figures/fig7_embeddings.pdf Graphic file (type pdf)
 <use ../paper_figures/fig7_embeddings.pdf>
-Package pdftex.def Info: ../paper_figures/fig7_embeddings.pdf  used on input line 285.
+Package pdftex.def Info: ../paper_figures/fig7_embeddings.pdf  used on input line 289.
 (pdftex.def)             Requested size: 452.9679pt x 143.23343pt.
- [13 <../paper_figures/fig1_network.pdf> <../paper_figures/fig7_embeddings.pdf>] (./main.bbl [14]) [15] [16] (./main.aux)
+ [13 <../paper_figures/fig1_network.pdf>] [14 <../paper_figures/fig7_embeddings.pdf>] (./main.bbl [15]) [16] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -450,13 +450,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  12692 strings out of 469514
  199207 string characters out of 5468470
- 620136 words of memory out of 5000000
+ 621136 words of memory out of 5000000
  41113 multiletter control sequences out of 15000+600000
  647110 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,1446b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,1446b,567s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></Users/jacobcrainic/Library/TinyTex/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (16 pages, 624398 bytes).
+Output written on main.pdf (16 pages, 626694 bytes).
 PDF statistics:
  892 PDF objects out of 1000 (max. 8388607)
  396 compressed objects within 4 object streams
