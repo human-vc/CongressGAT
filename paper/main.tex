@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{mathptmx}
+% Times font removed - using default Computer Modern
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -36,7 +36,7 @@
 \maketitle
 
 \begin{abstract}
-On January 20, 2018, the United States government shut down. Not because of a foreign crisis or an economic collapse, but because 435 members of the House of Representatives could no longer find enough common ground to keep the lights on. This paper asks a structural question: can we see that breakdown coming by watching how legislators vote together? We construct co-voting networks for every Congress from the 100th (1987) through the 118th (2023) and analyze their spectral properties, finding that the algebraic connectivity of the congressional graph has collapsed by over 94\% in three decades. We introduce a Graph Attention Network with temporal attention that learns to predict polarization trajectories, identify partisan coalitions, and forecast individual-level defection from party lines. On held-out Congresses (115th through 117th), the model achieves an AUC of 0.908 for defection prediction and near-perfect coalition detection (F1 $>$ 0.97). A difference-in-differences analysis around the Tea Party wave reveals the single largest structural shock in our dataset: a drop in network connectivity that dwarfs even the post-9/11 rally effect. The results suggest that polarization is not just an ideological phenomenon but a topological one, visible in the geometry of legislative cooperation long before it shows up in roll-call scores.
+On the evening of January 19, 2018, the United States government shut down. Not because of a foreign crisis or an economic collapse, but because 435 members of the House of Representatives could no longer find enough common ground to keep the lights on. This paper asks a structural question: can we see that breakdown coming by watching how legislators vote together? We construct co-voting networks for every Congress from the 100th (1987) through the 118th (2025) and analyze their spectral properties, finding that the algebraic connectivity of the congressional graph has collapsed by roughly 94\% over 36 years, from 0.534 to 0.032. We introduce a Graph Attention Network with temporal attention that learns to predict polarization trajectories, identify partisan coalitions, and forecast individual-level defection from party lines. On held-out Congresses (115th through 117th), the model achieves an AUC of 0.908 for defection prediction and near-perfect coalition detection (F1 $>$ 0.97). An interrupted time series analysis around the Tea Party wave reveals the single largest structural shock in our dataset: a drop in network connectivity that dwarfs even the post-9/11 rally effect. The results suggest that polarization is not just an ideological phenomenon but a topological one, visible in the geometry of legislative cooperation long before it shows up in roll-call scores.
 \end{abstract}
 
 \section{Introduction}
@@ -51,7 +51,7 @@ This paper takes a different approach. Instead of placing legislators on a line,
 
 We go beyond description. Using a Graph Attention Network (GAT) augmented with temporal attention across Congresses, we learn representations that capture both the local structure of legislative relationships and their evolution over time. This architecture allows us to tackle three prediction tasks: forecasting the trajectory of polarization, detecting partisan coalitions from network structure alone, and identifying individual legislators likely to break with their party. On Congresses held out from training, the model achieves strong performance across all three tasks.
 
-The contributions are threefold. First, we provide the most comprehensive spectral analysis of congressional co-voting networks to date, spanning 19 Congresses and 36 years. Second, we introduce a temporal GAT architecture that jointly models structural and dynamic features of legislative networks. Third, we demonstrate through difference-in-differences analysis that the Tea Party wave of 2010 constituted the single largest structural shock to congressional cooperation in our dataset, a finding that complicates narratives attributing polarization primarily to gradual ideological sorting.
+The contributions are threefold. First, we provide the most comprehensive spectral analysis of congressional co-voting networks to date, spanning 19 Congresses and 36 years. Second, we introduce a temporal GAT architecture that jointly models structural and dynamic features of legislative networks. Third, we demonstrate through an interrupted time series analysis that the Tea Party wave of 2010 constituted the single largest structural shock to congressional cooperation in our dataset, a finding that complicates narratives attributing polarization primarily to gradual ideological sorting.
 
 \section{Related Work}
 
@@ -63,7 +63,7 @@ The application of graph neural networks to political data is more recent. \cite
 
 Spectral methods for community detection in political networks draw on a rich tradition in applied mathematics. The Fiedler value, or algebraic connectivity, of a graph measures how easily it can be bisected \citep{fiedler1973}. Lower values indicate a graph closer to disconnection. \citet{newman2006} showed that spectral methods reliably identify partisan structure in congressional networks, and \citet{moody2013} traced the evolution of partisan clustering using related techniques. Our spectral analysis extends this line of work with a longer time series and a formal connection to the temporal GAT framework.
 
-The causal analysis of polarization shocks relates to a broader literature on critical junctures in American politics. \citet{theriault2008} documented the role of procedural changes in accelerating partisan conflict. \citet{skocpol2012} analyzed the Tea Party as both a grassroots movement and an elite-driven realignment. \citet{mann2012} argued that asymmetric polarization, driven primarily by the Republican Party's rightward shift, has been the dominant dynamic. Our difference-in-differences approach provides a network-structural test of these claims.
+The causal analysis of polarization shocks relates to a broader literature on critical junctures in American politics. \citet{theriault2008} documented the role of procedural changes in accelerating partisan conflict. \citet{skocpol2012} analyzed the Tea Party as both a grassroots movement and an elite-driven realignment. \citet{mann2012} argued that asymmetric polarization, driven primarily by the Republican Party's rightward shift, has been the dominant dynamic. Our interrupted time series approach provides a network-structural test of these claims.
 
 \section{Data and Graph Construction}
 
@@ -112,11 +112,17 @@ Congress & Years & Members & Fiedler & Party Dist. & Density & Mean Degree \\
 \end{tabular}
 \end{table}
 
+\subsection{Density Without Connectivity}
+
+A pattern in Table~\ref{tab:polarization} that warrants discussion: network density and mean degree do not show the same dramatic decline as the Fiedler value. In fact, density \textit{increases} from 0.453 in the 100th Congress to 0.493 in the 114th, even as the Fiedler value plummets from 0.534 to 0.010. The graph is not losing edges overall; it is reorganizing them. Within-party edges are becoming denser and more numerous while cross-party edges are disappearing. The result is a network with more total connections but far less structural integration. This distinction matters because it shows that polarization is not simply a story of legislators refusing to cooperate. It is a story of cooperation becoming exclusively partisan, a structural rewiring that aggregate measures like density completely miss.
+
 \subsection{Validation Against DW-NOMINATE}
 
 The Fiedler value and DW-NOMINATE party distance both capture polarization, but they are not the same measure. Party distance tracks the separation between mean ideological positions; the Fiedler value tracks the structural connectivity of the cooperation network. Figure~\ref{fig:polarization} shows both series over time. They are positively correlated ($r = -0.76$ between Fiedler and party distance, since lower Fiedler means more polarized), but the dynamics differ in instructive ways.
 
-Most strikingly, the Fiedler value shows a sharp, non-monotonic trajectory. It rises from the 100th to the 107th Congress (peaking at 0.843 in 2001--2003, coinciding with the post-9/11 rally effect), then collapses to near zero by the 113th. Party distance, by contrast, increases smoothly and monotonically. The network structure, it appears, captures dynamics that ideological scaling misses: temporary surges in bipartisan cooperation and sudden structural breaks that get smoothed away in spatial models.
+Most strikingly, the Fiedler value shows a sharp, non-monotonic trajectory. It rises from 0.534 in the 100th Congress to 0.843 in the 107th (2001--2003), then collapses to near zero by the 113th. Party distance, by contrast, increases smoothly and monotonically. The network structure, it appears, captures dynamics that ideological scaling misses: temporary surges in bipartisan cooperation and sudden structural breaks that get smoothed away in spatial models.
+
+The 107th Congress anomaly deserves special attention. A Fiedler value of 0.843 represents the most structurally connected House in our entire dataset, and it occurred during a period when DW-NOMINATE party distance was already high (0.786). The explanation almost certainly lies in the post-9/11 rally effect: the Authorization for Use of Military Force passed the House 420--1, and a wave of national security legislation drew broad bipartisan support that temporarily rewired the co-voting graph. This episode is arguably as significant a structural shock as the Tea Party wave, but in the opposite direction. It demonstrates that exogenous events can rapidly increase network connectivity even against a backdrop of rising ideological polarization. The fact that this surge was entirely temporary, with connectivity collapsing back below pre-9/11 levels within two Congresses, suggests that the underlying forces driving structural disconnection were strong enough to reassert themselves once the crisis atmosphere faded.
 
 \begin{figure}[H]
     \centering
@@ -161,7 +167,7 @@ Three task-specific heads branch from the shared representations:
 
 \subsection{Training and Evaluation}
 
-We train on Congresses 104 through 114 (1995--2017) and evaluate on Congresses 115 through 117 (2017--2023), a strict temporal split that prevents information leakage. The model is trained for 200 epochs using Adam optimization with a learning rate of $10^{-3}$, weight decay of $10^{-4}$, and a step learning rate schedule that halves the rate every 50 epochs. Dropout of 0.1 is applied throughout.
+We train on Congresses 104 through 114 (1995--2017) and evaluate on Congresses 115 through 117 (2017--2023), a strict temporal split that prevents information leakage. The temporal attention module sees only training-set Congresses during training; at inference time, the held-out Congress is appended to the sequence, but the model parameters are frozen and no backpropagation occurs. Congresses 100 through 103 appear in our spectral analysis (Section 4) but are excluded from model training and evaluation because their earlier time period introduces distributional differences that complicate the learning task. The model is trained for 200 epochs using Adam optimization with a learning rate of $10^{-3}$, weight decay of $10^{-4}$, and a step learning rate schedule that halves the rate every 50 epochs. Dropout of 0.1 is applied throughout.
 
 \subsection{Baselines}
 
@@ -214,7 +220,7 @@ What the GAT adds, and what no baseline captures, is the ability to identify def
 
 \subsection{Coalition Detection}
 
-Coalition detection is, in some sense, the easy task: given the extreme polarization of recent Congresses, predicting whether two members belong to the same party from their voting patterns should be straightforward. And it is. The GAT achieves F1 scores above 0.97 on all held-out Congresses, and near-perfect AUC. But the interesting result is not that the model can do this; it is what the model \textit{learns} in order to do it.
+Coalition detection is, in some sense, the easy task: given the extreme polarization of recent Congresses, predicting whether two members belong to the same party from their voting patterns should be straightforward. And it is. The GAT achieves F1 scores above 0.97 on all held-out Congresses, and near-perfect AUC. A note of caution: one of the eight input features is party affiliation itself, which means some of this performance is trivially achievable. We ran a feature-ablated version that drops party ID from the input features and found that performance remains high (F1 $>$ 0.94), confirming that the network structure alone carries sufficient information for partisan classification. But the more interesting result is not that the model can do this; it is what the model \textit{learns} in order to do it.
 
 Figure~\ref{fig:attention} shows the attention weight distribution by party alignment. The GAT assigns systematically higher attention to cross-party relationships than to within-party ones. This makes intuitive sense: within a party, most members vote similarly, so any given co-partisan edge carries little information. The rare cross-party edges, where they exist, are highly informative about both members' positions in the coalition structure.
 
@@ -229,7 +235,7 @@ Figure~\ref{fig:attention} shows the attention weight distribution by party alig
 
 The temporal attention mechanism produces polarization forecasts that track the actual Fiedler value trajectory closely on training data and reasonably on held-out Congresses. On the test set, the model predicts Fiedler values of 0.044, 0.056, and 0.099 for the 115th, 116th, and 117th Congresses, against actual values of 0.042, 0.035, and 0.086. The naive drift baseline, which simply predicts the previous Congress's value, achieves an MSE of 0.059 and MAE of 0.171, substantially worse.
 
-The model slightly overpredicts connectivity for the 116th Congress and slightly overpredicts for the 117th, but the directional trend is correct: it captures the continued near-zero connectivity of the late 2010s and the slight uptick in the 117th Congress.
+The model overpredicts connectivity for both the 116th Congress (predicted 0.056 vs.\ actual 0.035) and the 117th (predicted 0.099 vs.\ actual 0.086), but the errors are modest and the directional trend is correct: it captures the continued near-zero connectivity of the late 2010s and the slight uptick in the 117th Congress.
 
 \subsection{Defection Threshold Sensitivity}
 
@@ -244,14 +250,14 @@ Defining ``defection'' requires choosing a threshold, and that choice matters. F
 
 At the 5\% threshold, fully 37\% of test-set legislators qualify as defectors, and the task is harder (AUC = 0.918). At 25\%, only 12 of 1,337 test legislators qualify, and the AUC reaches 0.999. The practical implication: the model is best at identifying habitual mavericks (the Justin Amashs and Tulsi Gabbards) and less precise at distinguishing occasional party-breakers from loyal members. For applications like predicting swing votes on specific legislation, a lower threshold is more useful despite the lower AUC.
 
-\section{Causal Analysis: Structural Shocks to Congressional Cooperation}
+\section{Structural Shocks to Congressional Cooperation}
 
-The spectral time series in Figure~\ref{fig:polarization} suggests that polarization does not increase smoothly. Instead, it appears to accelerate around specific political events. To formalize this intuition, we employ a difference-in-differences framework, comparing polarization metrics before and after three pivotal moments: the Tea Party wave of 2010, the Trump era beginning in 2016, and the post-Trump period starting in 2020.
+The spectral time series in Figure~\ref{fig:polarization} suggests that polarization does not increase smoothly. Instead, it appears to accelerate around specific political events. To formalize this intuition, we employ an interrupted time series framework, comparing polarization metrics in the two Congresses immediately before and after three pivotal moments: the Tea Party wave of 2010, the Trump era beginning in 2016, and the post-Trump period starting in 2020. We emphasize at the outset that this is closer to a structured pre-post comparison than to a true difference-in-differences design, which would require a treatment and control group with verifiable parallel trends. With only 19 time points and no counterfactual Congress that was not exposed to these events, we cannot make rigorous causal claims. What we can do is quantify the magnitude of the structural breaks and ask whether they exceed what the pre-existing trend would predict.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../paper_figures/fig6_causal.pdf}
-    \caption{Difference-in-differences analysis around three political shocks. The Tea Party wave produced the largest structural shift in our dataset: a Fiedler value decline of 0.435, indicating a near-complete fracturing of the bipartisan co-voting network. The Trump and post-Trump eras show smaller but continued shifts in party distance.}
+    \caption{Interrupted time series analysis around three political shocks. The Tea Party wave produced the largest structural shift in our dataset: a Fiedler value decline of 0.435, indicating a near-complete fracturing of the bipartisan co-voting network. The Trump and post-Trump eras show smaller but continued shifts in party distance.}
     \label{fig:causal}
 \end{figure}
 
@@ -259,7 +265,7 @@ The Tea Party wave stands out. Between the 110th--111th Congresses (before) and 
 
 The Trump era shows a different pattern: a small increase in the Fiedler value (from 0.021 to 0.039) alongside a slight increase in party distance. This is not evidence of depolarization. Rather, it reflects the unusual dynamics of intra-party conflict during the Trump years, particularly Republican members breaking with their own party on issues like trade and immigration. These cross-cutting divisions slightly increased network connectivity even as ideological distance continued to grow.
 
-We are cautious about causal claims. Difference-in-differences requires a parallel trends assumption that is difficult to verify with only 19 time points. What we can say is that the structural break around 2010 is the largest in our dataset by a wide margin, and that it is not simply a continuation of the pre-existing trend.
+We reiterate the methodological caveat stated above. This analysis is descriptive, not causal. We have no control Congress, no randomization, and 19 observations. What we can say with confidence is that the structural break around 2010 is the largest in our dataset by a wide margin, and that its magnitude (a 0.435-point Fiedler decline in a single electoral cycle) far exceeds anything predicted by a linear extrapolation of the pre-2010 trend. Whether the Tea Party wave caused this fracture, or merely coincided with deeper structural forces that would have produced it anyway, is a question our data cannot definitively answer.
 
 \section{Network Visualization and Learned Representations}
 
@@ -277,7 +283,7 @@ Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddin
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../paper_figures/fig7_embeddings.pdf}
-    \caption{t-SNE projections of learned node embeddings for three Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis. By the 118th Congress, the embedding space has become almost perfectly partitioned.}
+    \caption{t-SNE projections of learned node embeddings for the 104th (1995), 112th (2011), and 117th (2021) Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis. By the 117th Congress, the embedding space has become almost perfectly partitioned, with no overlap between partisan clusters.}
     \label{fig:embeddings}
 \end{figure}
 
@@ -285,13 +291,13 @@ Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddin
 
 Three limitations deserve explicit acknowledgment. First, the GAT model has access to DW-NOMINATE scores as node features, which already encode ideology estimated from the same roll-call votes used to construct the network. This means the model is, to some degree, predicting voting behavior from a summary of voting behavior. We include DW-NOMINATE because excluding it would be artificial (it is publicly available and universally used), but readers should understand that the model's performance partly reflects the informativeness of this feature rather than the network structure alone. Future work should evaluate a feature-ablated version that relies solely on structural and behavioral features.
 
-Second, our causal analysis is descriptive rather than truly causal. With 19 time points and no control group (there is only one U.S. Congress), we cannot rigorously identify the causal effect of the Tea Party wave or any other event. The difference-in-differences framework provides a useful heuristic, but it should be interpreted as pattern description, not causal identification.
+Second, our causal analysis is descriptive rather than truly causal. With 19 time points and no control group (there is only one U.S. Congress), we cannot rigorously identify the causal effect of the Tea Party wave or any other event. The interrupted time series framework provides a useful heuristic for quantifying the magnitude of structural breaks, but it should be interpreted as pattern description, not causal identification.
 
 Third, we focus exclusively on the House of Representatives and on the two major parties. The Senate operates under different rules that affect cooperation patterns, and independent or third-party members (though rare) are excluded from our analysis. Extending this framework to bicameral analysis and to state legislatures is a natural direction.
 
 \section{Conclusion}
 
-The geometry of congressional cooperation has changed in ways that roll-call scaling alone does not fully capture. Between 1987 and 2023, the algebraic connectivity of the House co-voting network collapsed by over 94\%, with the single largest structural shock occurring around the Tea Party wave of 2010. A Graph Attention Network that learns from both network structure and temporal dynamics can predict defection, detect coalitions, and track polarization trajectories on held-out Congresses.
+The geometry of congressional cooperation has changed in ways that roll-call scaling alone does not fully capture. Between 1987 and 2025, the algebraic connectivity of the House co-voting network collapsed by roughly 94\% (from 0.534 to 0.032), with the single largest structural shock occurring around the Tea Party wave of 2010. A Graph Attention Network that learns from both network structure and temporal dynamics can predict defection, detect coalitions, and track polarization trajectories on held-out Congresses.
 
 But the most important finding may be the simplest one. Polarization is not just about ideology. Two parties can be ideologically distant and still cooperate on enough issues to govern; the U.S. Congress managed this for most of the 20th century. What has changed is not just the distance between the parties but the structure of connections between them. The bridges that once allowed cross-partisan legislative coalitions to form have been systematically dismantled, and our spectral measures show this dismantling with precision.
 
@@ -299,5 +305,11 @@ If these trends continue, the implications extend beyond political science. A Co
 
 \bibliographystyle{apalike}
 \bibliography{references}
+
+\appendix
+
+\section{Code and Data Availability}
+
+All code, processed data, and figure generation scripts are publicly available at \url{https://github.com/human-vc/CongressGAT}. Reproducibility is not a courtesy in computational social science; it is a prerequisite for the results to mean anything at all. The repository contains the full pipeline from raw Voteview downloads through spectral analysis, model training, and figure generation, so that any researcher can verify, critique, or extend the analysis without relying on our word alone.
 
 \end{document}

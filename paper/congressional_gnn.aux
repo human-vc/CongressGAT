@@ -1,0 +1,82 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{4}{section.1}\protected@file@percent }
+\citation{mccarty2006polarized}
+\citation{poole1997congress}
+\citation{lee2009beyond}
+\citation{fiorina2005culture}
+\citation{hall2015happens}
+\citation{velickovic2018graph}
+\citation{wu2020comprehensive}
+\citation{kipf2017semi}
+\citation{andris2015rise}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Congressional Polarization}{5}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Graph Neural Networks in Social Science}{5}{subsection.2.2}\protected@file@percent }
+\citation{lewis2023voteview}
+\citation{lewis2023voteview}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data}{6}{section.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Data Summary by Congress}}{6}{table.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:data_summary}{{1}{6}{Data Summary by Congress}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Graph Construction}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Label Construction}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Model}{7}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architecture}{7}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Graph Attention Encoder.}{7}{section*.3}\protected@file@percent }
+\citation{vaswani2017attention}
+\@writefile{toc}{\contentsline {paragraph}{Temporal Self-Attention.}{8}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prediction Heads.}{8}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Training}{8}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Baselines}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{9}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Coalition Detection}{9}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Model Performance: Train (110th--114th) vs.\ Test (115th--116th)}}{9}{table.caption.6}\protected@file@percent }
+\newlabel{tab:results}{{2}{9}{Model Performance: Train (110th--114th) vs.\ Test (115th--116th)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Party Defection Prediction}{9}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Polarization Prediction}{10}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Polarization Dynamics}{10}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Polarization index across the 110th--116th Congresses, measured as $1 - (\text  {between-party agreement} / \text  {within-party agreement})$. The Tea Party wave of 2010 produces the largest single-session jump.}}{11}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:polarization}{{1}{11}{Polarization index across the 110th--116th Congresses, measured as $1 - (\text {between-party agreement} / \text {within-party agreement})$. The Tea Party wave of 2010 produces the largest single-session jump}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces House members in DW-NOMINATE ideological space for three Congresses. The shrinking overlap between parties is visible in the shift from the 110th to the 116th Congress.}}{11}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:ideology}{{2}{11}{House members in DW-NOMINATE ideological space for three Congresses. The shrinking overlap between parties is visible in the shift from the 110th to the 116th Congress}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Interpretability: What Does the Model Learn?}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Attention Weight Analysis}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces GAT Attention Weights by Party Alignment}}{12}{table.caption.9}\protected@file@percent }
+\newlabel{tab:attention}{{3}{12}{GAT Attention Weights by Party Alignment}{table.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Left: Mean attention weights by party alignment. Right: The ratio of same-party to cross-party attention declines as polarization increases, falling below 1.0 in the 114th--116th Congresses.}}{13}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:attention}{{3}{13}{Left: Mean attention weights by party alignment. Right: The ratio of same-party to cross-party attention declines as polarization increases, falling below 1.0 in the 114th--116th Congresses}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Feature Importance}{13}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Random forest feature importance for coalition detection (left) and defection prediction (right). Network-derived agreement features dominate defection prediction.}}{13}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:features}{{4}{13}{Random forest feature importance for coalition detection (left) and defection prediction (right). Network-derived agreement features dominate defection prediction}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Quasi-Causal Analysis}{14}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}The Tea Party Shock}{14}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Left: Polarization before and after the Tea Party wave (2010). Right: Polarization during the Trump era. The Tea Party produced a larger discrete shift; the Trump era saw a slight \textit  {decrease} relative to the pre-trend.}}{14}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:causal}{{5}{14}{Left: Polarization before and after the Tea Party wave (2010). Right: Polarization during the Trump era. The Tea Party produced a larger discrete shift; the Trump era saw a slight \textit {decrease} relative to the pre-trend}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}The Trump Era}{15}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Defection Dynamics}{15}{subsection.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Left: Party defection rates over time. Republican defection peaks during the Tea Party era (112th); Democratic defection declines steadily. Right: Polarization by Congress, with train/test split indicated.}}{16}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:defection}{{6}{16}{Left: Party defection rates over time. Republican defection peaks during the Tea Party era (112th); Democratic defection declines steadily. Right: Polarization by Congress, with train/test split indicated}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}The 114th Congress Anomaly}{16}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Discussion}{17}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Limitations}{18}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{18}{section.10}\protected@file@percent }
+\bibstyle{apalike}
+\bibcite{andris2015rise}{{1}{2015}{{Andris et al.}}{{}}}
+\bibcite{fiorina2005culture}{{2}{2005}{{Fiorina et al.}}{{}}}
+\bibcite{hall2015happens}{{3}{2015}{{Hall}}{{}}}
+\bibcite{kipf2017semi}{{4}{2017}{{Kipf \& Welling}}{{}}}
+\bibcite{lee2009beyond}{{5}{2009}{{Lee}}{{}}}
+\bibcite{lewis2023voteview}{{6}{2023}{{Lewis et al.}}{{}}}
+\bibcite{mccarty2006polarized}{{7}{2006}{{McCarty et al.}}{{}}}
+\bibcite{poole1997congress}{{8}{1997}{{Poole \& Rosenthal}}{{}}}
+\bibcite{vaswani2017attention}{{9}{2017}{{Vaswani et al.}}{{}}}
+\bibcite{velickovic2018graph}{{10}{2018}{{Veli\v {c}kovi\'{c} et al.}}{{}}}
+\bibcite{wu2020comprehensive}{{11}{2020}{{Wu et al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Model Hyperparameters}{20}{appendix.A}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces CongressGAT hyperparameters.}}{20}{table.caption.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Per-Congress Results}{20}{appendix.B}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces CongressGAT performance by Congress. The 111th Congress shows notably lower coalition F1, likely because it is the least polarized session and the graph structure is less cleanly partisan.}}{20}{table.caption.16}\protected@file@percent }
+\gdef \@abspage@last{20}

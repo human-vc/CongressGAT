@@ -397,7 +397,7 @@ def figure7_embeddings():
         return
 
     emb_data = np.load(emb_path)
-    target_congresses = [103, 114, 118]
+    target_congresses = [104, 112, 117]
 
     fig, axes = plt.subplots(1, len(target_congresses), figsize=(14, 4.5))
 

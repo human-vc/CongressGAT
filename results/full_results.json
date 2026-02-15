@@ -1,0 +1,993 @@
+{
+  "train_metrics": {
+    "polarization_r2": -0.02216649055480957,
+    "coalition_f1": 0.895281148667971,
+    "coalition_accuracy": 0.8961968680089486,
+    "defection_auc": 0.6616229604405879
+  },
+  "test_metrics": {
+    "polarization_r2": -2970.44921875,
+    "coalition_f1": 0.9899880837036295,
+    "coalition_accuracy": 0.9899888765294772,
+    "defection_auc": 0.7990415872660015
+  },
+  "per_congress": {
+    "110": {
+      "polarization_true": 0.51984041929245,
+      "polarization_pred": 0.5680086016654968,
+      "coalition_f1": 0.8947490706319703,
+      "coalition_accuracy": 0.8984547461368654,
+      "defection_auc": 0.8150804289544236
+    },
+    "111": {
+      "polarization_true": 0.39987605810165405,
+      "polarization_pred": 0.5656013488769531,
+      "coalition_f1": 0.37309292649098474,
+      "coalition_accuracy": 0.5951327433628318,
+      "defection_auc": 0.6599422117152614
+    },
+    "112": {
+      "polarization_true": 0.646661102771759,
+      "polarization_pred": 0.5693509578704834,
+      "coalition_f1": 0.9954549168607264,
+      "coalition_accuracy": 0.9955056179775281,
+      "defection_auc": 0.6677976265623027
+    },
+    "113": {
+      "polarization_true": 0.6396958231925964,
+      "polarization_pred": 0.5694281458854675,
+      "coalition_f1": 1.0,
+      "coalition_accuracy": 1.0,
+      "defection_auc": 0.660708782742681
+    },
+    "114": {
+      "polarization_true": 0.6899588108062744,
+      "polarization_pred": 0.5607137680053711,
+      "coalition_f1": 0.9976867030009914,
+      "coalition_accuracy": 0.9977324263038548,
+      "defection_auc": 0.7081898201301187
+    },
+    "115": {
+      "polarization_true": 0.6398447751998901,
+      "polarization_pred": 0.567577600479126,
+      "coalition_f1": 0.9955044056824311,
+      "coalition_accuracy": 0.9955555555555555,
+      "defection_auc": 0.669047619047619
+    },
+    "116": {
+      "polarization_true": 0.6424567699432373,
+      "polarization_pred": 0.5723580121994019,
+      "coalition_f1": 0.9842850785746071,
+      "coalition_accuracy": 0.9844097995545658,
+      "defection_auc": 0.816033159890643
+    }
+  },
+  "predictions": {
+    "polarization_pred": [
+      0.5680086016654968,
+      0.5656013488769531,
+      0.5693509578704834,
+      0.5694281458854675,
+      0.5607137680053711,
+      0.567577600479126,
+      0.5723580121994019
+    ],
+    "polarization_true": [
+      0.51984041929245,
+      0.39987605810165405,
+      0.646661102771759,
+      0.6396958231925964,
+      0.6899588108062744,
+      0.6398447751998901,
+      0.6424567699432373
+    ]
+  },
+  "baselines": {
+    "logistic_regression": {
+      "train": {
+        "coalition_f1": 1.0,
+        "coalition_accuracy": 1.0,
+        "defection_auc": 0.9851706084609595
+      },
+      "test": {
+        "coalition_f1": 1.0,
+        "coalition_accuracy": 1.0,
+        "defection_auc": 0.9836761573814595
+      }
+    },
+    "random_forest": {
+      "train": {
+        "coalition_f1": 1.0,
+        "coalition_accuracy": 1.0,
+        "defection_auc": 0.9999983421585759
+      },
+      "test": {
+        "coalition_f1": 1.0,
+        "coalition_accuracy": 1.0,
+        "defection_auc": 0.9856798565183276
+      }
+    },
+    "linear_regression_polarization": {
+      "train_r2": 1.0,
+      "test_r2": -33988.81737785293
+    },
+    "rf_feature_importance": {
+      "coalition": [
+        0.37149060141909074,
+        0.006367447913854288,
+        0.5532377694900885,
+        0.06431779207565615,
+        0.0045863891013102785
+      ],
+      "defection": [
+        0.14692695222818788,
+        0.055514508976575956,
+        0.009377052635435982,
+        0.6628165138437272,
+        0.12536497231607308
+      ],
+      "feature_names": [
+        "DW-NOM1",
+        "DW-NOM2",
+        "Party",
+        "Mean Same-Party Agree",
+        "Mean Cross-Party Agree"
+      ]
+    }
+  },
+  "causal": {
+    "tea_party": {
+      "pre_trend_110_111": -0.1199643611907959,
+      "shift_111_112": 0.24678504467010498,
+      "estimated_effect": 0.3667494058609009,
+      "polarization_110": 0.51984041929245,
+      "polarization_111": 0.39987605810165405,
+      "polarization_112": 0.646661102771759
+    },
+    "defection_trajectory": {
+      "110": {
+        "overall": 0.06185246265467947,
+        "republican": 0.09244696795929964,
+        "democrat": 0.036108305752011266
+      },
+      "111": {
+        "overall": 0.05101378556516976,
+        "republican": 0.07057509143639218,
+        "democrat": 0.0377062800840036
+      },
+      "112": {
+        "overall": 0.08715792861127634,
+        "republican": 0.07926989343898301,
+        "democrat": 0.09682077169733568
+      },
+      "113": {
+        "overall": 0.07159404375928115,
+        "republican": 0.06614821806372136,
+        "democrat": 0.07800089751876324
+      },
+      "114": {
+        "overall": 0.05602306248108524,
+        "republican": 0.06163478273859648,
+        "democrat": 0.04860968466721512
+      },
+      "115": {
+        "overall": 0.05036446046645295,
+        "republican": 0.05001104910268641,
+        "democrat": 0.05080622467116113
+      },
+      "116": {
+        "overall": 0.05059954761448228,
+        "republican": 0.08431558566406096,
+        "democrat": 0.021500228467957943
+      }
+    },
+    "trump_era": {
+      "pre_trend_113_114": 0.05026298761367798,
+      "shift_114_115": -0.05011403560638428,
+      "estimated_effect": -0.10037702322006226,
+      "polarization_114": 0.6899588108062744,
+      "polarization_115": 0.6398447751998901,
+      "polarization_116": 0.6424567699432373
+    },
+    "freshman_effect_112": {
+      "n_new_members": 104,
+      "n_returning": 341,
+      "new_rep_mean_ideology": 0.4725000262260437,
+      "returning_rep_mean_ideology": 0.4643375873565674,
+      "ideology_shift": 0.008162438869476318
+    },
+    "freshman_effect_115": {
+      "n_new_members": 67,
+      "n_returning": 383,
+      "new_rep_mean_ideology": 0.5298055410385132,
+      "returning_rep_mean_ideology": 0.48222896456718445,
+      "ideology_shift": 0.047576576471328735
+    },
+    "polarization_trajectory": {
+      "110": "0.5198404",
+      "111": "0.39987606",
+      "112": "0.6466611",
+      "113": "0.6396958",
+      "114": "0.6899588",
+      "115": "0.6398448",
+      "116": "0.64245677"
+    }
+  },
+  "attention_summary": {
+    "110": {
+      "mean_same_party_attention": 0.003678875043988228,
+      "mean_cross_party_attention": 0.003253875533118844,
+      "same_party_count": 102766,
+      "cross_party_count": 23030,
+      "top_edges": [
+        {
+          "from": "JORDAN, Jim",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026434218510985374,
+          "same_party": true
+        },
+        {
+          "from": "GARRETT, Scott",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026438826695084572,
+          "same_party": true
+        },
+        {
+          "from": "ROYCE, Edward Randall",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026448532938957214,
+          "same_party": true
+        },
+        {
+          "from": "JOHNSON, Sam",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026467498391866684,
+          "same_party": true
+        },
+        {
+          "from": "SENSENBRENNER, Frank James, Jr.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.0264736358076334,
+          "same_party": true
+        },
+        {
+          "from": "FOXX, Virginia Ann",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02647780440747738,
+          "same_party": true
+        },
+        {
+          "from": "MARCHANT, Kenny",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02647869475185871,
+          "same_party": true
+        },
+        {
+          "from": "CANNON, Christopher B.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02649136260151863,
+          "same_party": true
+        },
+        {
+          "from": "HENSARLING, Jeb",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026493333280086517,
+          "same_party": true
+        },
+        {
+          "from": "CAMPBELL, John (of California)",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026587331667542458,
+          "same_party": true
+        },
+        {
+          "from": "LAMBORN, Doug",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02660048007965088,
+          "same_party": true
+        },
+        {
+          "from": "FRANKS, Trent",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02661930024623871,
+          "same_party": true
+        },
+        {
+          "from": "BROUN, Paul C., Jr.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026626674458384514,
+          "same_party": true
+        },
+        {
+          "from": "SHADEGG, John B.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02662750706076622,
+          "same_party": true
+        },
+        {
+          "from": "TANCREDO, Thomas G.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02663063071668148,
+          "same_party": true
+        },
+        {
+          "from": "DUNCAN, John J., Jr.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026679472997784615,
+          "same_party": true
+        },
+        {
+          "from": "PAUL, Ronald Ernest",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02674938179552555,
+          "same_party": true
+        },
+        {
+          "from": "FLAKE, Jeff",
+          "to": "MILLER, Candice S.",
+          "attention": 0.026750795543193817,
+          "same_party": true
+        },
+        {
+          "from": "HASTERT, John Dennis",
+          "to": "MILLER, Candice S.",
+          "attention": 0.027277862653136253,
+          "same_party": true
+        },
+        {
+          "from": "NORWOOD, Charles W., Jr.",
+          "to": "MILLER, Candice S.",
+          "attention": 0.02793259546160698,
+          "same_party": true
+        }
+      ]
+    },
+    "111": {
+      "mean_same_party_attention": 0.0025960663333535194,
+      "mean_cross_party_attention": 0.002296776743605733,
+      "same_party_count": 105286,
+      "cross_party_count": 77074,
+      "top_edges": [
+        {
+          "from": "PRICE, Tom",
+          "to": "POE, Ted",
+          "attention": 0.013609049841761589,
+          "same_party": true
+        },
+        {
+          "from": "LAMBORN, Doug",
+          "to": "POE, Ted",
+          "attention": 0.013631824404001236,
+          "same_party": true
+        },
+        {
+          "from": "FRANKS, Trent",
+          "to": "POE, Ted",
+          "attention": 0.013653219677507877,
+          "same_party": true
+        },
+        {
+          "from": "McCLINTOCK, Tom",
+          "to": "POE, Ted",
+          "attention": 0.013653222471475601,
+          "same_party": true
+        },
+        {
+          "from": "BARRETT, James Gresham",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.013657858595252037,
+          "same_party": true
+        },
+        {
+          "from": "HENSARLING, Jeb",
+          "to": "POE, Ted",
+          "attention": 0.013689259067177773,
+          "same_party": true
+        },
+        {
+          "from": "PAUL, Ronald Ernest",
+          "to": "BRADY, Kevin Patrick",
+          "attention": 0.013710424304008484,
+          "same_party": true
+        },
+        {
+          "from": "GRAVES, Tom",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.013791512697935104,
+          "same_party": true
+        },
+        {
+          "from": "SHADEGG, John B.",
+          "to": "POE, Ted",
+          "attention": 0.013878812082111835,
+          "same_party": true
+        },
+        {
+          "from": "CAMPBELL, John (of California)",
+          "to": "POE, Ted",
+          "attention": 0.0139692984521389,
+          "same_party": true
+        },
+        {
+          "from": "BARRETT, James Gresham",
+          "to": "POE, Ted",
+          "attention": 0.01402286160737276,
+          "same_party": true
+        },
+        {
+          "from": "BROUN, Paul C., Jr.",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.014081901870667934,
+          "same_party": true
+        },
+        {
+          "from": "DEAL, John Nathan",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.014098028652369976,
+          "same_party": true
+        },
+        {
+          "from": "GRAVES, Tom",
+          "to": "POE, Ted",
+          "attention": 0.014160087332129478,
+          "same_party": true
+        },
+        {
+          "from": "FLAKE, Jeff",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.01417839340865612,
+          "same_party": true
+        },
+        {
+          "from": "PAUL, Ronald Ernest",
+          "to": "MILLER, Jefferson B. (Jeff)",
+          "attention": 0.014427120797336102,
+          "same_party": true
+        },
+        {
+          "from": "BROUN, Paul C., Jr.",
+          "to": "POE, Ted",
+          "attention": 0.01445823721587658,
+          "same_party": true
+        },
+        {
+          "from": "DEAL, John Nathan",
+          "to": "POE, Ted",
+          "attention": 0.014474794268608093,
+          "same_party": true
+        },
+        {
+          "from": "FLAKE, Jeff",
+          "to": "POE, Ted",
+          "attention": 0.014557307586073875,
+          "same_party": true
+        },
+        {
+          "from": "PAUL, Ronald Ernest",
+          "to": "POE, Ted",
+          "attention": 0.014812681823968887,
+          "same_party": true
+        }
+      ]
+    },
+    "112": {
+      "mean_same_party_attention": 0.0042105624452233315,
+      "mean_cross_party_attention": 0.0038131342735141516,
+      "same_party_count": 99264,
+      "cross_party_count": 7092,
+      "top_edges": [
+        {
+          "from": "JOHNSON, Timothy V.",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012626074254512787,
+          "same_party": false
+        },
+        {
+          "from": "GARRETT, Scott",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012655976228415966,
+          "same_party": false
+        },
+        {
+          "from": "SENSENBRENNER, Frank James, Jr.",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012656272388994694,
+          "same_party": false
+        },
+        {
+          "from": "LABRADOR, Ra\u00fal R.",
+          "to": "BOREN, Daniel David",
+          "attention": 0.01265654619783163,
+          "same_party": false
+        },
+        {
+          "from": "DUNCAN, Jeff",
+          "to": "BOREN, Daniel David",
+          "attention": 0.01267691794782877,
+          "same_party": false
+        },
+        {
+          "from": "ROHRABACHER, Dana",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012710418552160263,
+          "same_party": false
+        },
+        {
+          "from": "DUNCAN, John J., Jr.",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012710478156805038,
+          "same_party": false
+        },
+        {
+          "from": "CAMPBELL, John (of California)",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012710879556834698,
+          "same_party": false
+        },
+        {
+          "from": "FLAKE, Jeff",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012711461633443832,
+          "same_party": false
+        },
+        {
+          "from": "HUELSKAMP, Tim",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012807158753275871,
+          "same_party": false
+        },
+        {
+          "from": "GRAVES, Tom",
+          "to": "BOREN, Daniel David",
+          "attention": 0.01286236196756363,
+          "same_party": false
+        },
+        {
+          "from": "McCLINTOCK, Tom",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012862473726272583,
+          "same_party": false
+        },
+        {
+          "from": "MULVANEY, Mick",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012863093055784702,
+          "same_party": false
+        },
+        {
+          "from": "WALSH, Joe",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012863176874816418,
+          "same_party": false
+        },
+        {
+          "from": "BROUN, Paul C., Jr.",
+          "to": "BOREN, Daniel David",
+          "attention": 0.01286350842565298,
+          "same_party": false
+        },
+        {
+          "from": "MACK, Connie, IV",
+          "to": "BOREN, Daniel David",
+          "attention": 0.012962618842720985,
+          "same_party": false
+        },
+        {
+          "from": "LEE, Christopher John",
+          "to": "BOREN, Daniel David",
+          "attention": 0.013050451874732971,
+          "same_party": false
+        },
+        {
+          "from": "AMASH, Justin",
+          "to": "BOREN, Daniel David",
+          "attention": 0.013116777874529362,
+          "same_party": false
+        },
+        {
+          "from": "PAUL, Ronald Ernest",
+          "to": "BOREN, Daniel David",
+          "attention": 0.013116911984980106,
+          "same_party": false
+        },
+        {
+          "from": "HELLER, Dean",
+          "to": "BOREN, Daniel David",
+          "attention": 0.013283106498420238,
+          "same_party": false
+        }
+      ]
+    },
+    "113": {
+      "mean_same_party_attention": 0.0043715620413422585,
+      "mean_cross_party_attention": 0.004068934358656406,
+      "same_party_count": 98682,
+      "cross_party_count": 3098,
+      "top_edges": [
+        {
+          "from": "PERRY, Scott",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008863385766744614,
+          "same_party": true
+        },
+        {
+          "from": "SENSENBRENNER, Frank James, Jr.",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008863477036356926,
+          "same_party": true
+        },
+        {
+          "from": "GOSAR, Paul",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008863498456776142,
+          "same_party": true
+        },
+        {
+          "from": "HUELSKAMP, Tim",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008863569237291813,
+          "same_party": true
+        },
+        {
+          "from": "LABRADOR, Ra\u00fal R.",
+          "to": "GIBSON, Christopher",
+          "attention": 0.00886368378996849,
+          "same_party": true
+        },
+        {
+          "from": "MULVANEY, Mick",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008863772265613079,
+          "same_party": true
+        },
+        {
+          "from": "STOCKMAN, Steve",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008864142000675201,
+          "same_party": true
+        },
+        {
+          "from": "SMITH, Jason",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008905509486794472,
+          "same_party": true
+        },
+        {
+          "from": "HALL, Ralph Moody",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008906609378755093,
+          "same_party": true
+        },
+        {
+          "from": "JONES, Walter Beaman, Jr.",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008914918638765812,
+          "same_party": true
+        },
+        {
+          "from": "GOHMERT, Louie",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008915113285183907,
+          "same_party": true
+        },
+        {
+          "from": "McALLISTER, Vance M.",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008934064768254757,
+          "same_party": true
+        },
+        {
+          "from": "ROHRABACHER, Dana",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008994719944894314,
+          "same_party": true
+        },
+        {
+          "from": "SANFORD, Mark",
+          "to": "GIBSON, Christopher",
+          "attention": 0.008997154422104359,
+          "same_party": true
+        },
+        {
+          "from": "BROUN, Paul C., Jr.",
+          "to": "GIBSON, Christopher",
+          "attention": 0.009006155654788017,
+          "same_party": true
+        },
+        {
+          "from": "RADEL, Trey",
+          "to": "GIBSON, Christopher",
+          "attention": 0.009037859737873077,
+          "same_party": true
+        },
+        {
+          "from": "BYRNE, Bradley",
+          "to": "GIBSON, Christopher",
+          "attention": 0.009038049727678299,
+          "same_party": true
+        },
+        {
+          "from": "AMASH, Justin",
+          "to": "GIBSON, Christopher",
+          "attention": 0.00904904119670391,
+          "same_party": true
+        },
+        {
+          "from": "CLAWSON, Curt",
+          "to": "GIBSON, Christopher",
+          "attention": 0.009078903123736382,
+          "same_party": true
+        },
+        {
+          "from": "MASSIE, Thomas",
+          "to": "GIBSON, Christopher",
+          "attention": 0.009090691804885864,
+          "same_party": true
+        }
+      ]
+    },
+    "114": {
+      "mean_same_party_attention": 0.004407376050949097,
+      "mean_cross_party_attention": 0.004902468528598547,
+      "same_party_count": 98326,
+      "cross_party_count": 1558,
+      "top_edges": [
+        {
+          "from": "McCLINTOCK, Tom",
+          "to": "EVANS, Dwight",
+          "attention": 0.009866304695606232,
+          "same_party": false
+        },
+        {
+          "from": "BARLETTA, Lou",
+          "to": "EVANS, Dwight",
+          "attention": 0.009890371933579445,
+          "same_party": false
+        },
+        {
+          "from": "COMSTOCK, Barbara J.",
+          "to": "EVANS, Dwight",
+          "attention": 0.009890377521514893,
+          "same_party": false
+        },
+        {
+          "from": "SCHOCK, Aaron",
+          "to": "DUCKWORTH, Tammy",
+          "attention": 0.00992473866790533,
+          "same_party": false
+        },
+        {
+          "from": "McKINLEY, David",
+          "to": "EVANS, Dwight",
+          "attention": 0.009947908110916615,
+          "same_party": false
+        },
+        {
+          "from": "GARRETT, Scott",
+          "to": "EVANS, Dwight",
+          "attention": 0.009949627332389355,
+          "same_party": false
+        },
+        {
+          "from": "MARINO, Thomas A.",
+          "to": "EVANS, Dwight",
+          "attention": 0.009959890507161617,
+          "same_party": false
+        },
+        {
+          "from": "ADERHOLT, Robert",
+          "to": "EVANS, Dwight",
+          "attention": 0.009960120543837547,
+          "same_party": false
+        },
+        {
+          "from": "ELLMERS, Renee",
+          "to": "EVANS, Dwight",
+          "attention": 0.009960239753127098,
+          "same_party": false
+        },
+        {
+          "from": "AMODEI, Mark E.",
+          "to": "EVANS, Dwight",
+          "attention": 0.009960373863577843,
+          "same_party": false
+        },
+        {
+          "from": "KNIGHT, Steve",
+          "to": "EVANS, Dwight",
+          "attention": 0.00996043998748064,
+          "same_party": false
+        },
+        {
+          "from": "McCAUL, Michael T.",
+          "to": "EVANS, Dwight",
+          "attention": 0.009960487484931946,
+          "same_party": false
+        },
+        {
+          "from": "WALTERS, Mimi",
+          "to": "EVANS, Dwight",
+          "attention": 0.009960537776350975,
+          "same_party": false
+        },
+        {
+          "from": "ISSA, Darrell",
+          "to": "EVANS, Dwight",
+          "attention": 0.00996088981628418,
+          "same_party": false
+        },
+        {
+          "from": "BISHOP, Robert (Rob)",
+          "to": "EVANS, Dwight",
+          "attention": 0.009961020201444626,
+          "same_party": false
+        },
+        {
+          "from": "HULTGREN, Randy",
+          "to": "EVANS, Dwight",
+          "attention": 0.009961044415831566,
+          "same_party": false
+        },
+        {
+          "from": "BUCHANAN, Vernon G.",
+          "to": "EVANS, Dwight",
+          "attention": 0.009961085394024849,
+          "same_party": false
+        },
+        {
+          "from": "RICE, Tom",
+          "to": "EVANS, Dwight",
+          "attention": 0.009961557574570179,
+          "same_party": false
+        },
+        {
+          "from": "SALMON, Matthew James",
+          "to": "EVANS, Dwight",
+          "attention": 0.00996203999966383,
+          "same_party": false
+        },
+        {
+          "from": "LaHOOD, Darin",
+          "to": "EVANS, Dwight",
+          "attention": 0.009991541504859924,
+          "same_party": false
+        }
+      ]
+    },
+    "115": {
+      "mean_same_party_attention": 0.004230134654790163,
+      "mean_cross_party_attention": 0.004946668166667223,
+      "same_party_count": 101826,
+      "cross_party_count": 3894,
+      "top_edges": [
+        {
+          "from": "RATCLIFFE, John",
+          "to": "CLOUD, Michael",
+          "attention": 0.01195687334984541,
+          "same_party": true
+        },
+        {
+          "from": "DUNCAN, Jeff",
+          "to": "CLOUD, Michael",
+          "attention": 0.01195712573826313,
+          "same_party": true
+        },
+        {
+          "from": "DAVIDSON, Warren",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957269161939621,
+          "same_party": true
+        },
+        {
+          "from": "McCLINTOCK, Tom",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957328766584396,
+          "same_party": true
+        },
+        {
+          "from": "BROOKS, Mo",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957365088164806,
+          "same_party": true
+        },
+        {
+          "from": "PERRY, Scott",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957633309066296,
+          "same_party": true
+        },
+        {
+          "from": "GOSAR, Paul",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957762762904167,
+          "same_party": true
+        },
+        {
+          "from": "SENSENBRENNER, Frank James, Jr.",
+          "to": "CLOUD, Michael",
+          "attention": 0.011957784183323383,
+          "same_party": true
+        },
+        {
+          "from": "SANFORD, Mark",
+          "to": "CLOUD, Michael",
+          "attention": 0.011958323419094086,
+          "same_party": true
+        },
+        {
+          "from": "GOHMERT, Louie",
+          "to": "CLOUD, Michael",
+          "attention": 0.012006604112684727,
+          "same_party": true
+        },
+        {
+          "from": "DUNCAN, John J., Jr.",
+          "to": "CLOUD, Michael",
+          "attention": 0.012006719596683979,
+          "same_party": true
+        },
+        {
+          "from": "GARRETT, Thomas Alexander Jr.",
+          "to": "CLOUD, Michael",
+          "attention": 0.012008728459477425,
+          "same_party": true
+        },
+        {
+          "from": "NORMAN, Ralph",
+          "to": "CLOUD, Michael",
+          "attention": 0.012030022218823433,
+          "same_party": true
+        },
+        {
+          "from": "ROSS, Dennis",
+          "to": "CLOUD, Michael",
+          "attention": 0.012328987009823322,
+          "same_party": true
+        },
+        {
+          "from": "JENKINS, Evan H.",
+          "to": "CLOUD, Michael",
+          "attention": 0.012333209626376629,
+          "same_party": true
+        },
+        {
+          "from": "BIGGS, Andrew S.",
+          "to": "CLOUD, Michael",
+          "attention": 0.0123844463378191,
+          "same_party": true
+        },
+        {
+          "from": "DeSANTIS, Ron",
+          "to": "CLOUD, Michael",
+          "attention": 0.012594055384397507,
+          "same_party": true
+        },
+        {
+          "from": "AMASH, Justin",
+          "to": "CLOUD, Michael",
+          "attention": 0.012706340290606022,
+          "same_party": true
+        },
+        {
+          "from": "MASSIE, Thomas",
+          "to": "CLOUD, Michael",
+          "attention": 0.012750906869769096,
+          "same_party": true
+        },
+        {
+          "from": "RYAN, Paul D.",
+          "to": "CLOUD, Michael",
+          "attention": 0.012789104133844376,
+          "same_party": true
+        }
+      ]
+    },
+    "116": {
+      "mean_same_party_attention": 0.004174049012362957,
+      "mean_cross_party_attention": 0.00488358223810792,
+      "same_party_count": 100547,
+      "cross_party_count": 3527,
+      "top_edges": []
+    }
+  }
+}

@@ -1,0 +1,88 @@
+\begin{thebibliography}{}
+
+\bibitem[Andris et~al., 2015]{andris2015}
+Andris, C., Lee, D., Hamilton, M.~J., Martino, M., Gunning, C.~E., and Selden, J.~A. (2015).
+\newblock The rise of partisanship and super-cooperators in the {U.S.} {House} of {Representatives}.
+\newblock {\em PLOS ONE}, 10(4):e0123507.
+
+\bibitem[{Congressional Budget Office}, 2013]{cbo2013}
+{Congressional Budget Office} (2013).
+\newblock The effects of the partial shutdown starting in october 2013.
+\newblock Technical report, Congressional Budget Office.
+
+\bibitem[Fiedler, 1973]{fiedler1973}
+Fiedler, M. (1973).
+\newblock Algebraic connectivity of graphs.
+\newblock {\em Czechoslovak Mathematical Journal}, 23(2):298--305.
+
+\bibitem[Fowler, 2006]{fowler2006a}
+Fowler, J.~H. (2006).
+\newblock Connecting the congress: A study of cosponsorship networks.
+\newblock {\em Political Analysis}, 14(4):456--487.
+
+\bibitem[Kipf and Welling, 2017]{kipf2017}
+Kipf, T.~N. and Welling, M. (2017).
+\newblock Semi-supervised classification with graph convolutional networks.
+\newblock In {\em International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Lewis et~al., 2023]{lewis2023}
+Lewis, J.~B., Poole, K.~T., Rosenthal, H., Boche, A., Rudkin, A., and Sonnet, L. (2023).
+\newblock Voteview: Congressional roll-call votes database.
+\newblock {\em Available at \url{https://voteview.com}}.
+
+\bibitem[Li et~al., 2021]{li2021}
+Li, M., Hao, Z., and Zeng, Y. (2021).
+\newblock Graph neural networks for legislative roll call prediction.
+\newblock {\em Knowledge-Based Systems}, 228:107270.
+
+\bibitem[Mann and Ornstein, 2012]{mann2012}
+Mann, T.~E. and Ornstein, N.~J. (2012).
+\newblock {\em It's Even Worse Than It Looks: How the American Constitutional System Collided with the New Politics of Extremism}.
+\newblock Basic Books.
+
+\bibitem[Moody and Mucha, 2013]{moody2013}
+Moody, J. and Mucha, P.~J. (2013).
+\newblock Portrait of political party polarization.
+\newblock {\em Network Science}, 1(1):119--121.
+
+\bibitem[Newman, 2006]{newman2006}
+Newman, M. E.~J. (2006).
+\newblock Modularity and community structure in networks.
+\newblock {\em Proceedings of the National Academy of Sciences}, 103(23):8577--8582.
+
+\bibitem[Poole and Rosenthal, 1985]{poole1985}
+Poole, K.~T. and Rosenthal, H. (1985).
+\newblock A spatial model for legislative roll call analysis.
+\newblock {\em American Journal of Political Science}, 29(2):357--384.
+
+\bibitem[Poole and Rosenthal, 2017]{poole2017}
+Poole, K.~T. and Rosenthal, H. (2017).
+\newblock {\em Ideology and Congress: A Political Economic History of Roll Call Voting}.
+\newblock Transaction Publishers, 2nd edition.
+
+\bibitem[Skocpol and Williamson, 2012]{skocpol2012}
+Skocpol, T. and Williamson, V. (2012).
+\newblock {\em The Tea Party and the Remaking of Republican Conservatism}.
+\newblock Oxford University Press.
+
+\bibitem[Theriault, 2008]{theriault2008}
+Theriault, S.~M. (2008).
+\newblock {\em Party Polarization in Congress}.
+\newblock Cambridge University Press.
+
+\bibitem[Veli{\v{c}}kovi{\'c} et~al., 2018]{velickovic2018}
+Veli{\v{c}}kovi{\'c}, P., Cucurull, G., Casanova, A., Romero, A., Li{\`o}, P., and Bengio, Y. (2018).
+\newblock Graph attention networks.
+\newblock In {\em International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Waugh et~al., 2009]{waugh2009}
+Waugh, A.~S., Pei, L., Fowler, J.~H., Mucha, P.~J., and Porter, M.~A. (2009).
+\newblock Party polarization in congress: A network science approach.
+\newblock {\em arXiv preprint arXiv:0907.3509}.
+
+\bibitem[Yang et~al., 2016]{yang2020}
+Yang, Z., Cohen, W.~W., and Salakhutdinov, R. (2016).
+\newblock Revisiting semi-supervised learning with graph embeddings.
+\newblock {\em Proceedings of the International Conference on Machine Learning}.
+
+\end{thebibliography}
