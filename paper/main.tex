@@ -556,6 +556,8 @@ NOMINATE-only & (2 dims) & 0.814 & 0.438 & 1.000 & 0.0007 \\
 }
 \end{table}
 
+Removing DW-NOMINATE (row 2) reduces defection AUC by roughly 14 percentage points (0.887 to 0.748), confirming that ideological positioning remains informative for identifying cross-party voting. But network-only features achieve comparable AUC (0.903) with F1 collapsing to zero, meaning the model predicts defectors at the wrong threshold when deprived of ideological priors. Coalition detection is stable across ablations, with F1 remaining above 0.96 whenever any feature category is present. Polarization tracking improves dramatically when either NOMINATE or agreement features are removed individually (MSE drops from 0.0076 to 0.0007). The temporal attention mechanism captures the structural trajectory more accurately when not forced to reconcile competing feature signals.
+
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.75\textwidth]{../paper_figures/fig10_ablation.pdf}
@@ -563,8 +565,6 @@ NOMINATE-only & (2 dims) & 0.814 & 0.438 & 1.000 & 0.0007 \\
     \caption{Feature ablation results across prediction tasks. Network-only features match full-model defection AUC (0.903 vs 0.887) but produce zero F1, indicating correct ranking but miscalibrated thresholds. Coalition detection collapses only when both ideological features are removed.}
     \label{fig:ablation}
 \end{figure}
-
-Removing DW-NOMINATE (row 2) reduces defection AUC by roughly 14 percentage points (0.887 to 0.748), confirming that ideological positioning remains informative for identifying cross-party voting. But network-only features achieve comparable AUC (0.903) with F1 collapsing to zero, meaning the model predicts defectors at the wrong threshold when deprived of ideological priors. Coalition detection is stable across ablations, with F1 remaining above 0.96 whenever any feature category is present. Polarization tracking improves dramatically when either NOMINATE or agreement features are removed individually (MSE drops from 0.0076 to 0.0007). The temporal attention mechanism captures the structural trajectory more accurately when not forced to reconcile competing feature signals.
 
 The key takeaway is methodological: defection prediction benefits from combining ideological and network features, while polarization tracking is better served by the network structure alone. This asymmetry reflects the nature of the tasks: individual-level defection requires both positional context (NOMINATE) and relational context (voting agreement), whereas aggregate polarization is a graph property that network structure captures directly.
 
