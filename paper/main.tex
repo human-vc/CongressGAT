@@ -297,7 +297,7 @@ Beyond aggregate performance metrics, the model provides interpretable predictio
 
 \begin{table}[H]
 \centering
-\caption{Predicted defector rankings for selected legislators across held-out Congresses. The model identifies high-risk members with notable accuracy, though habitual mavericks like Justin Amash (R-MI) and Thomas Massie (R-KY) frequently fall below the prediction threshold despite high defection rates.}
+\caption{Predicted defector probabilities for selected legislators across held-out Congresses. Pred. Prob. is the model's predicted probability of defection (voting against majority of own party on >50\% of contested rollcalls). ``Missed defectors'' are legislators with documented high defection rates in real world but low model predictions.}
 \label{tab:defectors}
 \begin{tabular}{lccc}
 \toprule
@@ -326,7 +326,7 @@ SANFORD, Mark & R-SC & 115 & 0.394 \\
 \end{tabular}
 \end{table}
 
-A notable pattern emerges: the model excels at identifying members who defect on specific legislation but maintain mainstream party positions, while systematically underpredicting for ideological mavericks who consistently vote against their party. Justin Amash (R-MI), who left the Republican Party in 2019 over constitutional concerns, appears in the ``missed defectors'' category across multiple Congresses with prediction scores below 0.5 despite above-threshold defection rates. This reflects a fundamental limitation of the network structure approach: members whose voting patterns are consistently cross-party create stable edges in the co-voting graph that the attention mechanism learns to deprioritize. Their consistency, paradoxically, makes them harder to detect.
+A notable pattern emerges: the model excels at identifying members who defect on specific legislation but maintain mainstream party positions, while systematically underpredicting for ideological mavericks who consistently vote against their party. Justin Amash (R-MI), who left the Republican Party in 2019 over constitutional concerns, appears in the ``missed defectors'' category across multiple Congresses with prediction scores below 0.5 despite above-threshold defection rates. His DW-NOMINATE scores reveal why: Amash scores 0.654 on dimension-1 (ideological conservatism) but -0.757 on dimension-2 (libertarian orientation). The first dimension places him squarely in the conservative camp, while the second dimension captures his heterodox voting patterns that DW-NOMINATE alone cannot fully represent. The GAT, trained to predict defection from network structure and voting agreement, learned that members with stable co-voting patterns are less likely to defect. Amash's consistency across Congresses made him structurally predictable as a reliable partisan, even as his actual voting record contained frequent cross-party moments. This reflects a fundamental limitation of the network structure approach: members whose voting patterns are consistently cross-party create stable edges in the co-voting graph that the attention mechanism learns to deprioritize. Their consistency, paradoxically, makes them harder to detect. Removing DW-NOMINATE from the input features (Table~\ref{tab:ablation}, row 4) improves defection AUC slightly but at the cost of F1 collapsing entirely, suggesting that ideological priors remain valuable for detecting the harder cases that network structure alone misses.
 
 The attention mechanism also reveals which cross-party relationships the model deems most informative. Table~\ref{tab:cross_edges} presents the highest-attention cross-party edges in each test Congress.
 
@@ -346,7 +346,6 @@ STEFANIK, Elise (R-NY) & GOTTHEIMER, Josh (D-NJ) & 0.125 \\
 KATKO, John (R-NY) & O'HALLERAN, Tom (D-AZ) & 0.092 \\
 \midrule
 \multicolumn{3}{l}{\textbf{116th Congress (2019--2021)}} \\
-GARCIA, Mike (R-CA) & PELOSI, Nancy (D-CA) & 0.175 \\
 ROONEY, Francis (R-FL) & SAN NICOLAS, Michael (D-GU) & 0.173 \\
 JOYCE, David (R-OH) & HORN, Kendra (D-OK) & 0.082 \\
 HERRERA BEUTLER, Jaime (R-WA) & GOLDEN, Jared (D-ME) & 0.079 \\
