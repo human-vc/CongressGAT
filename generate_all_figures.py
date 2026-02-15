@@ -165,7 +165,7 @@ def figure2_polarization():
         if min(years) <= year <= max(years):
             ax1.axvline(x=year, color='#999999', linestyle='--', alpha=0.6, linewidth=0.8)
             ax1.annotate(label, xy=(year, max(fiedler)*1.05), fontsize=7.5,
-                        ha='center', va='bottom', color='#555555')
+                        ha='center', va='bottom', color='black')
 
     lines1, labels1 = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
@@ -380,7 +380,7 @@ def figure6_causal():
             ax.annotate(f'{sign}{diff:.3f}', xy=(x[i] + width/2, after_vals[i]),
                        xytext=(0, 5), textcoords='offset points',
                        ha='center', fontsize=8, fontweight='bold',
-                       color='#d62728' if abs(diff) > 0.05 else '#555555')
+                       color='#d62728' if abs(diff) > 0.05 else 'black')
 
         ax.set_title(title, fontweight='bold')
         ax.set_xticks(x)
