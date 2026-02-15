@@ -16,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage{titlesec}
+\usepackage{placeins}
 \titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
@@ -300,6 +301,7 @@ The choice of defection threshold matters. Figure~\ref{fig:sensitivity} shows ho
 
 At the 5\% threshold, fully 37\% of test-set legislators qualify as defectors, and the task is harder (AUC = 0.918). At 25\%, only 12 of 1,337 test legislators qualify, and the AUC reaches 0.999. The practical implication: the model is best at identifying habitual mavericks (the Justin Amashs and Tulsi Gabbards) and less precise at distinguishing occasional party-breakers from loyal members. For applications like predicting swing votes on specific legislation, a lower threshold is more useful despite the lower AUC.
 
+\FloatBarrier
 \section{Structural Shocks to Congressional Cooperation}
 
 Polarization does not increase smoothly. The spectral time series in Figure~\ref{fig:polarization} suggests acceleration around specific political events. To formalize this, we employ an interrupted time series framework, comparing polarization metrics in the two Congresses immediately before and after three pivotal moments: the Tea Party wave of 2010, the Trump era beginning in 2016, and the post-Trump period starting in 2020. A caveat up front: this is closer to a structured pre-post comparison than to a true difference-in-differences design, which would require a treatment and control group with verifiable parallel trends. With only 19 time points and no counterfactual Congress unexposed to these events, we can't make rigorous causal claims. What we can do is quantify the magnitude of the structural breaks and ask whether they exceed what the pre-existing trend would predict.
@@ -335,7 +337,7 @@ The boundary condition is clear: network models capture policy-driven fractures 
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{../paper_figures/fig1_network.pdf}
+    \includegraphics[width=0.85\textwidth]{../paper_figures/fig1_network.pdf}
     \caption{Co-voting networks for the 114th Congress (left) and 103rd Congress (right), with members positioned by DW-NOMINATE scores. Red edges indicate cross-party agreement above the 50\% threshold used throughout the analysis. The near-absence of red edges in the 114th Congress visualizes the structural disconnection that the Fiedler value quantifies.}
     \label{fig:network}
 \end{figure}
@@ -346,7 +348,7 @@ Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddin
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{../paper_figures/fig7_embeddings.pdf}
+    \includegraphics[width=0.85\textwidth]{../paper_figures/fig7_embeddings.pdf}
     \caption{t-SNE projections of learned node embeddings for the 104th (1995), 112th (2011), and 117th (2021) Congresses. The progressive separation of partisan clusters mirrors the structural disconnection observed in the spectral analysis.}
     \label{fig:embeddings}
 \end{figure}
@@ -487,6 +489,7 @@ Figure~\ref{fig:bridge_index} shows the decline in the number and magnitude of b
     \label{fig:bridge_index}
 \end{figure}
 
+\FloatBarrier
 \section{Counterfactual Network Perturbation}
 
 Cross-party edges disappeared, bridge legislators were eliminated, and the Fiedler value collapsed. That much we've documented. But a counterfactual question remains: \textit{how much} of the structural difference between the relatively integrated 103rd Congress and the nearly disconnected 118th can be attributed to specific, identifiable changes in cooperative behavior? We conduct two perturbation experiments on the existing co-voting graphs. No model retraining is needed; the experiments operate directly on the adjacency matrices and their spectral properties.
@@ -557,7 +560,7 @@ Removing DW-NOMINATE (row 2) reduces defection AUC by roughly 14 percentage poin
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../paper_figures/fig10_ablation.pdf}
+    \includegraphics[width=0.70\textwidth]{../paper_figures/fig10_ablation.pdf}
     \vspace{-0.5em}
     \caption{Feature ablation results across prediction tasks. Network-only features match full-model defection AUC (0.903 vs 0.887) but produce zero F1, indicating correct ranking but miscalibrated thresholds. Coalition detection collapses only when both ideological features are removed.}
     \label{fig:ablation}
@@ -565,6 +568,7 @@ Removing DW-NOMINATE (row 2) reduces defection AUC by roughly 14 percentage poin
 
 The key takeaway is methodological: defection prediction benefits from combining ideological and network features, while polarization tracking is better served by the network structure alone. This asymmetry reflects the nature of the tasks: individual-level defection requires both positional context (NOMINATE) and relational context (voting agreement), whereas aggregate polarization is a graph property that network structure captures directly.
 
+\FloatBarrier
 \section{Senate Spectral Trajectory}
 \label{app:senate}
 
