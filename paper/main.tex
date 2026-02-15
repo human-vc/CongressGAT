@@ -538,8 +538,8 @@ Table~\ref{tab:ablation} reports performance across six feature configurations, 
 
 \begin{table}[!htbp]
 \centering
-{\small
-\caption{Feature ablation results across three prediction tasks. Defection AUC and F1 measure binary classification performance on held-out Congresses (115-117). Coalition F1 measures same-party edge detection. Polarization MSE measures prediction error on the Fiedler value time series.}
+{\footnotesize
+\caption{Feature ablation results. Defection AUC/F1 on held-out Congresses (115--117). Coalition F1 measures same-party edge detection. Pol. MSE is Fiedler prediction error.}
 \label{tab:ablation}
 \begin{tabular}{lcccccc}
 \toprule
@@ -558,7 +558,7 @@ NOMINATE-only & (2 dims) & 0.814 & 0.438 & 1.000 & 0.0007 \\
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.85\textwidth]{../paper_figures/fig10_ablation.pdf}
+    \includegraphics[width=0.75\textwidth]{../paper_figures/fig10_ablation.pdf}
     \vspace{-0.5em}
     \caption{Feature ablation results across prediction tasks. Network-only features match full-model defection AUC (0.903 vs 0.887) but produce zero F1, indicating correct ranking but miscalibrated thresholds. Coalition detection collapses only when both ideological features are removed.}
     \label{fig:ablation}
