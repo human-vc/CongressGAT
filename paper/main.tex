@@ -106,7 +106,7 @@ Each node has an eight-dimensional feature vector: DW-NOMINATE scores on both di
 
 The normalized graph Laplacian is $L = I - D^{-1/2} \hat{A} D^{-1/2}$, where $D$ is the diagonal degree matrix. Its second-smallest eigenvalue, the Fiedler value $\lambda_2$, measures how well-connected the graph is. Values near zero indicate the graph is close to splitting into disconnected components; larger values indicate a more integrated structure \citep{fiedler1973}.
 
-In the 100th Congress (1987), $\lambda_2$ stood at 0.534. By the 114th (2015), it had fallen to 0.010, a decline of over 98\%. The co-voting graph had, in structural terms, nearly split in two.
+In the 100th Congress (1987), $\lambda_2$ stood at 0.534. By the 114th (2015), it had fallen to 0.010, a decline of over 98\%. The co-voting graph had, in structural terms, nearly split in two. Table~\ref{tab:polarization} summarizes these metrics across the study period.
 
 \begin{table}[!htbp]
 \centering
@@ -129,7 +129,7 @@ Congress & Years & Members & Fiedler & Party Dist. & Density & Mean Degree \\
 
 \subsection{Density Without Connectivity}
 
-Density \textit{increases} from 0.453 to 0.493 even as the Fiedler value collapses from 0.534 to 0.010 (Table~\ref{tab:polarization}). That's counterintuitive. The graph is not losing edges; it's reorganizing them. Within-party connections grow denser while cross-party edges vanish. Polarization is a structural rewiring, not a loss of cooperation, and aggregate measures like density miss this entirely.
+Density \textit{increases} from 0.453 to 0.493 even as the Fiedler value collapses from 0.534 to 0.010 (Table~\ref{tab:polarization}). This finding is initially counterintuitive, as one might expect gridlock to manifest as a loss of edges. However, the graph structure reveals that edges are not lost but rather reorganized: within-party connections densify while cross-party bridges vanish. Polarization is a structural rewiring, not a loss of cooperation, and aggregate measures like density miss this entirely.
 
 \subsection{Validation Against DW-NOMINATE}
 
