@@ -302,7 +302,6 @@ The choice of defection threshold matters. Figure~\ref{fig:sensitivity} shows ho
 
 At the 5\% threshold, fully 37\% of test-set legislators qualify as defectors, and the task is harder (AUC = 0.918). At 25\%, only 12 of 1,337 test legislators qualify, and the AUC reaches 0.999. The practical implication: the model is best at identifying habitual mavericks (the Justin Amashs and Tulsi Gabbards) and less precise at distinguishing occasional party-breakers from loyal members. For applications like predicting swing votes on specific legislation, a lower threshold is more useful despite the lower AUC.
 
-\FloatBarrier
 \section{Structural Shocks to Congressional Cooperation}
 
 Polarization does not increase smoothly. The spectral time series in Figure~\ref{fig:polarization} suggests acceleration around specific political events. To formalize this, we employ an interrupted time series framework, comparing polarization metrics in the two Congresses immediately before and after three pivotal moments: the Tea Party wave of 2010, the Trump era beginning in 2016, and the post-Trump period starting in 2020. A caveat up front: this is closer to a structured pre-post comparison than to a true difference-in-differences design, which would require a treatment and control group with verifiable parallel trends. With only 19 time points and no counterfactual Congress unexposed to these events, we can't make rigorous causal claims. What we can do is quantify the magnitude of the structural breaks and ask whether they exceed what the pre-existing trend would predict.
