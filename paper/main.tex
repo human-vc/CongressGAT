@@ -279,15 +279,15 @@ As a test of the model's extrapolation capacity, we generate a forward predictio
 
 We extract the $T \times T$ attention matrix from the trained model, where each entry $(t, t')$ represents how much Congress $t$ attends to Congress $t'$. Figure~\ref{fig:temporal_heatmap} visualizes this matrix across all 19 Congresses.
 
-The dominant pattern is diagonal: each Congress attends most strongly to itself and its immediate temporal neighbors, unsurprising given the continuity of membership across adjacent sessions. But the off-diagonal structure is telling. The 112th Congress (2011--2013) draws elevated attention from Congresses in the 115th--117th range, as though the model treats the Tea Party Congress as a structural reference point for interpreting later sessions. There is also a modest spike between the 115th Congress and the 107th (the post-9/11 session). Both represent periods of unusual structural disruption, one toward connectivity, the other away from it. Off-diagonal weights are substantially smaller than diagonal ones overall, so the model primarily relies on local temporal context.
-
-\begin{figure}[!bt]
+\begin{figure}[H]
     \centering
     \vspace{-0.5em}
     \includegraphics[width=0.75\textwidth]{../paper_figures/fig8_temporal_heatmap.pdf}
     \caption{Temporal attention heatmap showing how each Congress (row) attends to all other Congresses (column) in the temporal attention layer. The dominant diagonal pattern reflects local temporal continuity, with notable off-diagonal attention from post-2016 Congresses toward the 112th (Tea Party) and 107th (post-9/11) sessions.}
     \label{fig:temporal_heatmap}
 \end{figure}
+
+The dominant pattern is diagonal: each Congress attends most strongly to itself and its immediate temporal neighbors, unsurprising given the continuity of membership across adjacent sessions. But the off-diagonal structure is telling. The 112th Congress (2011--2013) draws elevated attention from Congresses in the 115th--117th range, as though the model treats the Tea Party Congress as a structural reference point for interpreting later sessions. There is also a modest spike between the 115th Congress and the 107th (the post-9/11 session). Both represent periods of unusual structural disruption, one toward connectivity, the other away from it. Off-diagonal weights are substantially smaller than diagonal ones overall, so the model primarily relies on local temporal context.
 
 \subsection{Defection Threshold Sensitivity}
 
@@ -356,7 +356,9 @@ Figure~\ref{fig:embeddings} shows t-SNE projections of the learned node embeddin
 
 \section{Individual-Level Analysis: Defection Predictions and Cross-Party Attention}
 
-\begin{table}[!t]
+Beyond aggregate performance metrics, the model provides interpretable predictions at the individual legislator level. Table~\ref{tab:defectors} presents the members most frequently predicted as likely defectors across the test Congresses, alongside their actual defection status.
+
+\begin{table}[H]
 \centering
 {\footnotesize
 \caption{Predicted defector probabilities and actual defection rates for selected legislators. Pred. Prob. is the model's predicted defection probability; Actual Def. Rate is computed from Voteview roll-call data. ``Missed defectors'' have high actual rates but low predictions.}
@@ -388,8 +390,6 @@ SANFORD, Mark & R-SC & 115 & 0.394 & 0.151 \\
 \end{tabular}
 }
 \end{table}
-
-Beyond aggregate performance metrics, the model provides interpretable predictions at the individual legislator level. Table~\ref{tab:defectors} presents the members most frequently predicted as likely defectors across the test Congresses, alongside their actual defection status.
 
 The model excels at identifying members who defect on specific legislation but maintain mainstream party positions. It systematically underpredicts for ideological mavericks who consistently vote against their party. Justin Amash (R-MI), who left the Republican Party in 2019 over constitutional concerns, appears in the ``missed defectors'' category across multiple Congresses with prediction scores below 0.5 despite above-threshold defection rates. His DW-NOMINATE scores reveal why: Amash scores 0.654 on dimension-1 (ideological conservatism) but -0.757 on dimension-2 (libertarian orientation). The first dimension places him squarely in the conservative camp, while the second dimension captures his heterodox voting patterns that DW-NOMINATE alone cannot fully represent. The GAT, trained to predict defection from network structure and voting agreement, learned that members with stable co-voting patterns are less likely to defect. Amash's consistency across Congresses made him structurally predictable as a reliable partisan, even as his actual voting record contained frequent cross-party moments. This is a limitation of the network structure approach: members whose voting patterns are consistently cross-party create stable edges in the co-voting graph that the attention mechanism learns to deprioritize. Their consistency, paradoxically, makes them harder to detect. Removing DW-NOMINATE from the input features (Table~\ref{tab:ablation}, row 4) improves defection AUC slightly but at the cost of F1 collapsing entirely, suggesting that ideological priors remain valuable for detecting the harder cases that network structure alone misses.
 
