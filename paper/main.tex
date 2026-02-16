@@ -260,7 +260,7 @@ Coalition detection is the easy task here. Given extreme polarization, the GAT a
 
 The more revealing finding is \textit{how} the model classifies. Figure~\ref{fig:attention} shows that the GAT assigns systematically higher attention to cross-party edges than within-party ones, consistent with the intuition that rare bipartisan connections carry the most structural information.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../paper_figures/fig3_attention.pdf}
     \caption{Left: GAT attention weights for the 115th Congress, with members sorted by ideology. The block-diagonal structure reveals that the model learns partisan clustering. Right: Distribution of attention weights by party alignment. Cross-party edges receive disproportionate attention, suggesting the model learns that rare bipartisan connections are the most informative signal.}
