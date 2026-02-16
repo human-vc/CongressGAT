@@ -14,6 +14,15 @@ from sklearn.preprocessing import StandardScaler
 import warnings
 warnings.filterwarnings('ignore')
 
+# Fixed seeds for reproducibility
+np.random.seed(42)
+torch.manual_seed(42)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed(42)
+    torch.cuda.manual_seed_all(42)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 RESULTS_DIR = os.path.expanduser('~/CongressionalGNN/results_final')
 CONGRESSES = list(range(104, 119))
 TRAIN_CONGRESSES = list(range(104, 115))
