@@ -13,8 +13,10 @@
 \usepackage{caption}
 \captionsetup{font=small}
 
+\usepackage{lastpage}
 \renewcommand{\headrulewidth}{0pt}
 \pagestyle{fancy}
+\cfoot{\thepage\ of \pageref{LastPage}}
 
 \makeatletter
 \def\@maketitle{%
