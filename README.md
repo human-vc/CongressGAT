@@ -1,35 +1,51 @@
 # CongressGAT: Graph Attention Networks for Predicting Legislative Defection
 
-This repository contains code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995-2024."**
+Code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995–2024"** — submitted to [IC2S2 2026](https://ic2s2.org/).
 
 ## Overview
 
-We construct temporal voting networks for every session of the U.S. House from the 104th through 118th Congress (1995-2024) and apply Graph Attention Networks (GATs) to predict which members will defect from their party line.
+We construct temporal voting networks for every session of the U.S. House from the 104th through 118th Congress (1995–2024) and apply Graph Attention Networks (GATs) to predict which members will defect from their party line.
 
 **Key results:**
-- GAT achieves F1=0.75 and AUC=0.88 at 5% defection threshold, outperforming logistic regression (F1=0.60), random forests (F1=0.63), and naive baselines (F1=0.59)
-- Fiedler vector of voting networks correlates with DW-NOMINATE at r>0.97
-- Attention mechanism reveals same-party connections receive 200x more weight than cross-party ties
-- Tea Party wave of 2010 produced a permanent 40% decline in cross-party agreement
+- GAT achieves **F1 = 0.75** and **AUC = 0.88** at a 5% defection threshold, outperforming logistic regression (F1 = 0.60), random forests (F1 = 0.63), and naïve baselines (F1 = 0.59)
+- Fiedler vector of voting networks correlates with DW-NOMINATE at *r* > 0.97
+- Attention mechanism reveals same-party connections receive 200× more weight than cross-party ties
+- The Tea Party wave of 2010 produced a permanent 40% decline in cross-party agreement
 
 ## Repository Structure
 
 ```
-CongressionalGNN/
-    pipeline_full.py          - Data processing, graph construction, spectral analysis
-    model_gat.py              - GAT model, training, baselines, attention analysis
-    generate_final_figures.py - Publication-quality figure generation
-    data/                     - Voteview CSV files (members only; votes excluded for size)
-    results_final/            - Experiment results (JSON)
-    figures_final/            - Figures (PDF and PNG)
-    paper_final/              - LaTeX source and compiled PDF
+CongressGAT/
+├── pipeline_fast.py           # Data processing, graph construction, spectral analysis
+├── model_gat.py               # GAT model, training, baselines, attention analysis
+├── data/                      # Voteview member CSVs (H100–H118)
+├── pipeline_results/          # Processed pipeline outputs (JSON)
+├── model_results/             # Model experiment results
+├── results_final/             # Final experiment results
+├── figures/                   # Exploratory figures
+├── figures_final/             # Publication-quality figures (PDF/PNG)
+├── paper/                     # Paper drafts (LaTeX)
+├── paper_final/               # Final paper source
+├── ic2s2_submission/          # IC2S2 2026 abstract and figures
+├── generate_final_figures.py  # Publication-quality figure generation
+├── generate_all_figures.py    # Comprehensive figure generation
+├── generate_figures.py        # Figure generation utilities
+├── build_graph.py             # Graph construction utilities
+├── run_ablation.py            # Ablation study runner
+├── compute_baselines_script.py# Baseline computation
+├── senate_spectral.py         # Senate spectral analysis
+└── legacy/                    # Archived earlier pipeline scripts
 ```
 
 ## Data
 
-Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Member CSVs are included; vote CSVs are excluded due to size (~500MB total). Download them from:
-- `https://voteview.com/static/data/out/votes/H{num}_votes.csv`
-- `https://voteview.com/static/data/out/members/H{num}_members.csv`
+Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Member CSVs are included in `data/`; vote CSVs are excluded due to size (~500 MB total). Download them from:
+
+```
+https://voteview.com/static/data/out/votes/H{num}_votes.csv
+```
+
+Place downloaded vote CSVs in `data/`.
 
 ## Requirements
 
@@ -41,23 +57,26 @@ Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Memb
 ## Usage
 
 ```bash
-python pipeline_full.py           - Process all congresses
-python model_gat.py               - Train GAT and baselines
-python generate_final_figures.py  - Generate figures
+# Process all congresses (graph construction + spectral analysis)
+python pipeline_fast.py
+
+# Train GAT and baselines
+python model_gat.py
+
+# Generate publication figures
+python generate_final_figures.py
 ```
 
-## Reproducibility Note: Fiedler Value Computation
+## Spectral Analysis
 
-The repository contains multiple pipeline scripts that compute spectral properties differently. The paper's reported Fiedler values use the method in `pipeline_fast.py`:
-
-1. **Binary thresholding**: pairwise agreement scores are thresholded at τ = 0.5 to create an unweighted adjacency matrix (Section 3.2 of the paper).
-2. **Isolated node removal**: nodes with zero degree after thresholding are removed before computing the Laplacian.
-3. **Normalized Laplacian**: the Fiedler value is the second-smallest eigenvalue of L = I − D^{−1/2} A D^{−1/2}.
-
-The older `pipeline_full.py` uses weighted agreement rates as the adjacency matrix without thresholding, which produces different spectral properties (notably, alternating near-zero values for Congresses where the weighted graph is nearly disconnected). The `spectral_results.json` file in the repo root was generated by `pipeline_full.py` and **does not match** the paper's reported values.
-
-To reproduce the paper's spectral analysis, use `pipeline_fast.py` or the figure generation script `generate_all_figures.py`, both of which apply the binary threshold described in the paper.
+Fiedler values are computed using binary thresholding (τ = 0.5) on pairwise agreement scores, with isolated-node removal and the normalized Laplacian (L = I − D⁻¹ᐟ²AD⁻¹ᐟ²). See Section 3.2 of the paper for details. Canonical results are in `pipeline_results/`.
 
 ## Citation
 
-If you use this code or data, please cite the paper.
+If you use this code or data, please cite:
+
+> Crainic, J. (2026). The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995–2024. *IC2S2 2026*.
+
+## License
+
+See [LICENSE](LICENSE).
