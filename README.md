@@ -1,82 +1,37 @@
-# CongressGAT: Graph Attention Networks for Predicting Legislative Defection
+# The Geometry of Gridlock: Tracking Congressional Polarization with Graph Attention Networks
 
-Code and data for **"The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995–2024"** — submitted to [IC2S2 2026](https://ic2s2.org/).
+**February 2026**
 
-## Overview
+## Summary
 
-We construct temporal voting networks for every session of the U.S. House from the 104th through 118th Congress (1995–2024) and apply Graph Attention Networks (GATs) to predict which members will defect from their party line.
+Congressional polarization is typically measured by placing legislators on an ideological spectrum, but this approach misses the relational structure of legislative cooperation. We ask whether network topology can detect polarization dynamics that standard ideological measures overlook.
 
-**Key results:**
-- GAT achieves **F1 = 0.75** and **AUC = 0.88** at a 5% defection threshold, outperforming logistic regression (F1 = 0.60), random forests (F1 = 0.63), and naïve baselines (F1 = 0.59)
-- Fiedler vector of voting networks correlates with DW-NOMINATE at *r* > 0.97
-- Attention mechanism reveals same-party connections receive 200× more weight than cross-party ties
-- The Tea Party wave of 2010 produced a permanent 40% decline in cross-party agreement
+We construct co-voting networks for every U.S. House Congress from the 100th (1987) through the 118th (2025), connecting legislators who agree on a majority of shared roll-call votes, and track their spectral properties over time.
+
+### Key Findings
+
+- **Structural Collapse:** The algebraic connectivity of the House (Fiedler value) collapsed from a peak of **0.843** in the 107th Congress (post-9/11) to **0.032** in the 118th, indicating a near-complete structural disconnection between partisan blocs.
+- **Predictive Power:** A Graph Attention Network (GAT) augmented with temporal attention achieves a mean AUC of **0.908** for predicting individual defection from party lines on held-out Congresses (115th–117th).
+- **The Tea Party Shock:** An interrupted time series analysis identifies the 2010 Tea Party wave as the single largest structural shock in the dataset, permanently impairing the network's capacity for self-repair.
+- **2023 Speaker Crisis:** The model identified **12 of 20** Republican holdouts in the McCarthy Speaker crisis from network position alone, including members whose ideological scores gave no indication of rebellion. Standard ideological distance would have flagged only 3.
+- **Forecast:** The model projects continued decline for the 119th Congress (Fiedler 0.028), predicting persistent structural gridlock.
+
+## Methodology
+
+- **Data:** Roll-call votes from Voteview (100th–118th Congress).
+- **Network Construction:** Edges represent >50% agreement on shared votes.
+- **Model:** Temporal Graph Attention Network (GAT) learning representations of legislative behavior from local network topology and historical evolution.
+- **Metrics:** Spectral algebraic connectivity (Fiedler value), modularity, and a novel Structural Resilience Index.
 
 ## Repository Structure
 
 ```
-CongressGAT/
-├── pipeline_fast.py           # Data processing, graph construction, spectral analysis
-├── model_gat.py               # GAT model, training, baselines, attention analysis
-├── data/                      # Voteview member CSVs (H100–H118)
-├── pipeline_results/          # Processed pipeline outputs (JSON)
-├── model_results/             # Model experiment results
-├── results_final/             # Final experiment results
-├── figures/                   # Exploratory figures
-├── figures_final/             # Publication-quality figures (PDF/PNG)
-├── paper/                     # Paper drafts (LaTeX)
-├── paper_final/               # Final paper source
-├── ic2s2_submission/          # IC2S2 2026 abstract and figures
-├── generate_final_figures.py  # Publication-quality figure generation
-├── generate_all_figures.py    # Comprehensive figure generation
-├── generate_figures.py        # Figure generation utilities
-├── build_graph.py             # Graph construction utilities
-├── run_ablation.py            # Ablation study runner
-├── compute_baselines_script.py# Baseline computation
-├── senate_spectral.py         # Senate spectral analysis
-└── legacy/                    # Archived earlier pipeline scripts
+data/           Network edge lists and node features
+models/         PyTorch GAT implementation
+analysis/       Spectral analysis and time series scripts
+paper/          LaTeX source and PDF
 ```
-
-## Data
-
-Roll-call data from [Voteview](https://voteview.com/) (Lewis et al., 2023). Member CSVs are included in `data/`; vote CSVs are excluded due to size (~500 MB total). Download them from:
-
-```
-https://voteview.com/static/data/out/votes/H{num}_votes.csv
-```
-
-Place downloaded vote CSVs in `data/`.
-
-## Requirements
-
-- Python 3.10+
-- PyTorch 2.x
-- PyTorch Geometric 2.x
-- pandas, numpy, scipy, scikit-learn, matplotlib
-
-## Usage
-
-```bash
-# Process all congresses (graph construction + spectral analysis)
-python pipeline_fast.py
-
-# Train GAT and baselines
-python model_gat.py
-
-# Generate publication figures
-python generate_final_figures.py
-```
-
-## Spectral Analysis
-
-Fiedler values are computed using binary thresholding (τ = 0.5) on pairwise agreement scores, with isolated-node removal and the normalized Laplacian (L = I − D⁻¹ᐟ²AD⁻¹ᐟ²). See Section 3.2 of the paper for details. Canonical results are in `pipeline_results/`.
-
-## Citation
-
-If you use this code or data, please cite:
-
-> Crainic, J. (2026). The Geometry of Partisanship: Graph Attention Networks for Predicting Legislative Defection in the U.S. House, 1995–2024. *IC2S2 2026*.
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT License. Copyright (c) 2026 Jacob Crainic.
