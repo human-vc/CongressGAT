@@ -111,6 +111,65 @@ class CongressGAT(nn.Module):
         combined = torch.cat([node_i, node_j], dim=-1)
         return self.coalition_head(combined)
 
+class GCNLayer(nn.Module):
+    def __init__(self, in_features, out_features, dropout=0.1):
+        super().__init__()
+        self.linear = nn.Linear(in_features, out_features, bias=False)
+        self.dropout = nn.Dropout(dropout)
+        nn.init.xavier_uniform_(self.linear.weight)
+
+    def forward(self, x, adj):
+        adj_hat = adj + torch.eye(adj.size(0), device=adj.device)
+        degree = adj_hat.sum(dim=1)
+        d_inv_sqrt = torch.pow(degree, -0.5)
+        d_inv_sqrt[torch.isinf(d_inv_sqrt)] = 0.0
+        d_mat_inv_sqrt = torch.diag(d_inv_sqrt)
+        norm_adj = torch.mm(torch.mm(d_mat_inv_sqrt, adj_hat), d_mat_inv_sqrt)
+        support = self.linear(x)
+        out = torch.mm(norm_adj, support)
+        return self.dropout(out)
+
+class CongressGCN(nn.Module):
+    def __init__(self, in_features, hidden_dim=32, n_temporal_heads=2, dropout=0.1):
+        super().__init__()
+        self.gcn1 = GCNLayer(in_features, hidden_dim, dropout)
+        self.gcn2 = GCNLayer(hidden_dim, hidden_dim, dropout)
+        self.temporal_attention = TemporalAttention(hidden_dim, n_temporal_heads)
+        self.polarization_head = nn.Sequential(
+            nn.Linear(hidden_dim, 16), nn.ReLU(), nn.Dropout(dropout), nn.Linear(16, 1)
+        )
+        self.defection_head = nn.Sequential(
+            nn.Linear(hidden_dim + in_features, 32), nn.ReLU(), nn.Dropout(dropout), nn.Linear(32, 1), nn.Sigmoid()
+        )
+        self.coalition_head = nn.Sequential(
+            nn.Linear(hidden_dim * 2, 32), nn.ReLU(), nn.Dropout(dropout), nn.Linear(32, 1), nn.Sigmoid()
+        )
+        self.dropout = nn.Dropout(dropout)
+
+    def encode_graph(self, x, adj):
+        h = self.gcn1(x, adj)
+        h = F.elu(h)
+        h = self.dropout(h)
+        h = self.gcn2(h, adj)
+        h = F.elu(h)
+        return h, None, None
+
+    def forward_temporal(self, embeddings_seq):
+        seq = torch.stack(embeddings_seq, dim=0).unsqueeze(0)
+        out, temporal_attn = self.temporal_attention(seq)
+        return out.squeeze(0), temporal_attn
+
+    def predict_polarization(self, graph_embedding):
+        return self.polarization_head(graph_embedding)
+
+    def predict_defection(self, node_embedding, node_features):
+        combined = torch.cat([node_embedding, node_features], dim=-1)
+        return self.defection_head(combined)
+
+    def predict_coalition(self, node_i, node_j):
+        combined = torch.cat([node_i, node_j], dim=-1)
+        return self.coalition_head(combined)
+
 def load_congress_data(congress):
     npz_path = os.path.join(RESULTS_DIR, f"congress_{congress}.npz")
     if not os.path.exists(npz_path):
@@ -315,8 +374,8 @@ def train_model(train_congresses, test_congresses, device='cpu'):
             graph_embs_all.append(graph_emb)
             all_embeddings[congress] = node_emb.cpu().numpy()
             all_attentions[congress] = {
-                'layer1': attn1.cpu().numpy(),
-                'layer2': attn2.cpu().numpy(),
+                'layer1': attn1.cpu().numpy() if attn1 is not None else None,
+                'layer2': attn2.cpu().numpy() if attn2 is not None else None,
             }
             
             ckey = str(congress)
@@ -408,11 +467,12 @@ def train_model(train_congresses, test_congresses, device='cpu'):
         **{str(k): v for k, v in all_embeddings.items()}
     )
     for congress, attn_data in all_attentions.items():
-        np.savez_compressed(
-            os.path.join(MODEL_DIR, f"attention_{congress}.npz"),
-            layer1=attn_data['layer1'],
-            layer2=attn_data['layer2'],
-        )
+        if attn_data['layer1'] is not None and attn_data['layer2'] is not None:
+            np.savez_compressed(
+                os.path.join(MODEL_DIR, f"attention_{congress}.npz"),
+                layer1=attn_data['layer1'],
+                layer2=attn_data['layer2'],
+            )
     torch.save(model.state_dict(), os.path.join(MODEL_DIR, "model.pt"))
     
     print("\n--- RESULTS ---")
