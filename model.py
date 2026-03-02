@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import numpy as np
 import os
 import json
-from sklearn.metrics import roc_auc_score, f1_score, mean_squared_error, mean_absolute_error
+from sklearn.metrics import roc_auc_score, f1_score, mean_squared_error, mean_absolute_error, precision_recall_curve
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import warnings
@@ -156,13 +156,22 @@ def load_congress_data(congress):
 
 
 def train_model(train_congresses, test_congresses, device='cpu'):
+    val_congress = 114
+    train_congresses_cal = [c for c in train_congresses if c != val_congress]
+
     print("Loading training data...")
     train_data = {}
-    for c in train_congresses:
+    for c in train_congresses_cal:
         d = load_congress_data(c)
         if d is not None:
             train_data[c] = d
             print(f"  Congress {c}: {len(d['member_list'])} members")
+
+    val_data = {}
+    d_val = load_congress_data(val_congress)
+    if d_val is not None:
+        val_data[val_congress] = d_val
+        print(f"  Validation Congress {val_congress}: {len(d_val['member_list'])} members")
 
     test_data = {}
     for c in test_congresses:
@@ -179,8 +188,6 @@ def train_model(train_congresses, test_congresses, device='cpu'):
 
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.5)
-
-    all_attention_weights = {}
 
     print("\nTraining...")
     for epoch in range(200):
@@ -280,9 +287,42 @@ def train_model(train_congresses, test_congresses, device='cpu'):
         if (epoch + 1) % 50 == 0:
             print(f"  Epoch {epoch+1}: loss={total_loss/max(n_batches,1):.4f}")
 
-    print("\nEvaluating...")
     model.eval()
+    val_labels_all = []
+    val_preds_all = []
+
+    with torch.no_grad():
+        for congress in [val_congress]:
+            if congress not in val_data:
+                continue
+            d = val_data[congress]
+            x = torch.FloatTensor(d['features']).to(device)
+            adj = torch.FloatTensor((d['agreement'] > 0.5).astype(float)).to(device)
+            
+            node_emb, _, _ = model.encode_graph(x, adj)
+            def_pred = model.predict_defection(node_emb, x).squeeze().cpu().numpy()
+            def_labels = d['defection_labels']
+            
+            val_labels_all.extend(def_labels.tolist())
+            val_preds_all.extend(def_pred.tolist())
+    
+    if len(set(val_labels_all)) > 1:
+        precision, recall, thresholds = precision_recall_curve(
+            np.array(val_labels_all), np.array(val_preds_all)
+        )
+        f1_scores = 2 * (precision * recall) / (precision + recall + 1e-8)
+        best_idx = np.argmax(f1_scores)
+        global_optimal_threshold = float(thresholds[best_idx]) if best_idx < len(thresholds) else 0.5
+    else:
+        global_optimal_threshold = 0.5
+    
+    print(f"\n{'='*50}")
+    print(f"Calibrated Defection Threshold: {global_optimal_threshold:.4f}")
+    print(f"{'='*50}\n")
+
+    print("\nEvaluating...")
     results = {
+        'global_optimal_threshold': global_optimal_threshold,
         'polarization': {},
         'defection': {},
         'coalition': {},
@@ -293,11 +333,13 @@ def train_model(train_congresses, test_congresses, device='cpu'):
         all_embeddings = {}
         all_attentions = {}
 
-        all_congress_keys = sorted(set(list(train_data.keys()) + list(test_data.keys())))
+        all_congress_keys = sorted(set(list(train_data.keys()) + [val_congress] + list(test_data.keys())))
         all_available = {}
         for c in all_congress_keys:
             if c in train_data:
                 all_available[c] = train_data[c]
+            elif c in val_data:
+                all_available[c] = val_data[c]
             elif c in test_data:
                 all_available[c] = test_data[c]
 
@@ -323,7 +365,12 @@ def train_model(train_congresses, test_congresses, device='cpu'):
             ckey = str(congress)
             if ckey in all_results:
                 pol_targets_all.append(all_results[ckey]['spectral']['fiedler'])
-                pol_splits.append('test' if congress in test_data else 'train')
+                if congress in test_data:
+                    pol_splits.append('test')
+                elif congress == val_congress:
+                    pol_splits.append('val')
+                else:
+                    pol_splits.append('train')
 
             def_labels = d['defection_labels']
             def_pred = model.predict_defection(node_emb, x).squeeze().cpu().numpy()
@@ -332,16 +379,26 @@ def train_model(train_congresses, test_congresses, device='cpu'):
                 auc = roc_auc_score(def_labels, def_pred)
             except:
                 auc = 0.5
-            f1 = f1_score(def_labels, (def_pred > 0.5).astype(int), zero_division=0)
+            
+            preds_optimal = (def_pred > global_optimal_threshold).astype(int)
+            f1 = f1_score(def_labels, preds_optimal, zero_division=0)
+
+            if congress in test_data:
+                split_label = 'test'
+            elif congress == val_congress:
+                split_label = 'val'
+            else:
+                split_label = 'train'
 
             results['defection'][congress] = {
                 'auc': float(auc),
                 'f1': float(f1),
+                'threshold_used': global_optimal_threshold,
                 'n_defectors': int(def_labels.sum()),
                 'n_total': int(len(def_labels)),
                 'predictions': def_pred.tolist(),
                 'labels': def_labels.tolist(),
-                'split': 'test' if congress in test_data else 'train',
+                'split': split_label,
             }
 
             parties = []
@@ -374,7 +431,7 @@ def train_model(train_congresses, test_congresses, device='cpu'):
                 results['coalition'][congress] = {
                     'auc': float(coal_auc),
                     'f1': float(coal_f1),
-                    'split': 'test' if congress in test_data else 'train',
+                    'split': split_label,
                 }
 
         if graph_embs_all:
@@ -414,11 +471,11 @@ def train_model(train_congresses, test_congresses, device='cpu'):
     test_aucs = []
     for c in sorted(results['defection'].keys()):
         r = results['defection'][c]
-        label = "TEST" if r['split'] == 'test' else "train"
-        print(f"  Congress {c} [{label}]: AUC={r['auc']:.3f}, F1={r['f1']:.3f}")
+        label = r['split'].upper()
+        print(f"  Congress {c} [{label}]: AUC={r['auc']:.3f}, F1={r['f1']:.3f}, thresh={r['threshold_used']:.3f}")
         if r['split'] == 'test':
             test_aucs.append(r['auc'])
-        else:
+        elif r['split'] == 'train':
             train_aucs.append(r['auc'])
 
     print(f"\n  Train mean AUC: {np.mean(train_aucs):.3f}")
@@ -428,13 +485,13 @@ def train_model(train_congresses, test_congresses, device='cpu'):
     print("\nCoalition Detection (F1):")
     for c in sorted(results['coalition'].keys()):
         r = results['coalition'][c]
-        label = "TEST" if r['split'] == 'test' else "train"
+        label = r['split'].upper()
         print(f"  Congress {c} [{label}]: AUC={r['auc']:.3f}, F1={r['f1']:.3f}")
 
     print("\nPolarization Prediction:")
     for c in sorted(results['polarization'].keys()):
         r = results['polarization'][c]
-        label = "TEST" if r['split'] == 'test' else "train"
+        label = r['split'].upper()
         print(f"  Congress {c} [{label}]: pred={r['predicted']:.4f}, actual={r['actual']:.4f}")
 
     with open(os.path.join(MODEL_DIR, "results.json"), 'w') as f:
