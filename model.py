@@ -219,7 +219,7 @@ def train_model(train_congresses, test_congresses, device='cpu'):
         all_results = json.load(f)
         
     in_features = 8
-    model = CongressGCN(in_features=in_features, hidden_dim=32, dropout=0.1).to(device)
+    model = CongressGAT(in_features=in_features, hidden_dim=32, n_heads=4, dropout=0.1).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.5)
     
