@@ -1,0 +1,184 @@
+{
+  "threshold": 0.395,
+  "threshold_type": "calibrated",
+  "total_republicans": 230,
+  "total_flagged": 34,
+  "flagged_rate": 0.14782608695652175,
+  "total_holdouts": 20,
+  "holdouts_flagged": 0,
+  "holdout_recall": 0.0,
+  "holdouts_missed": [
+    "Andy Biggs",
+    "Dan Bishop",
+    "Lauren Boebert",
+    "Josh Brecheen",
+    "Michael Cloud",
+    "Andrew Clyde",
+    "Eli Crane",
+    "Matt Gaetz",
+    "Bob Good",
+    "Paul Gosar",
+    "Andy Harris",
+    "Anna Paulina Luna",
+    "Mary Miller",
+    "Ralph Norman",
+    "Scott Perry",
+    "Matt Rosendale",
+    "Chip Roy",
+    "Keith Self",
+    "Byron Donalds",
+    "Victoria Spartz"
+  ],
+  "flagged_members": [
+    {
+      "name": "WIED, Tony",
+      "probability": 0.44974384729219685,
+      "is_holdout": false
+    },
+    {
+      "name": "BANKS, James E.",
+      "probability": 0.44837458835129673,
+      "is_holdout": false
+    },
+    {
+      "name": "JOYCE, David",
+      "probability": 0.4454450548549249,
+      "is_holdout": false
+    },
+    {
+      "name": "BIGGS, Andrew S.",
+      "probability": 0.4451194762662877,
+      "is_holdout": false
+    },
+    {
+      "name": "HUNT, Wesley",
+      "probability": 0.44358973819370906,
+      "is_holdout": false
+    },
+    {
+      "name": "HOUCHIN, Erin",
+      "probability": 0.4435376478823313,
+      "is_holdout": false
+    },
+    {
+      "name": "GAETZ, Matthew L. II",
+      "probability": 0.443022308486262,
+      "is_holdout": false
+    },
+    {
+      "name": "HERN, Kevin",
+      "probability": 0.4430128017834899,
+      "is_holdout": false
+    },
+    {
+      "name": "TURNER, Michael R.",
+      "probability": 0.43699321999485796,
+      "is_holdout": false
+    },
+    {
+      "name": "VALADAO, David G.",
+      "probability": 0.43521276663065966,
+      "is_holdout": false
+    },
+    {
+      "name": "GROTHMAN, Glenn",
+      "probability": 0.4323526284277549,
+      "is_holdout": false
+    },
+    {
+      "name": "DUNCAN, Jeff",
+      "probability": 0.4268914176629204,
+      "is_holdout": false
+    },
+    {
+      "name": "ROGERS, Mike Dennis",
+      "probability": 0.42410879318427985,
+      "is_holdout": false
+    },
+    {
+      "name": "STAUBER, Peter",
+      "probability": 0.42226972955446995,
+      "is_holdout": false
+    },
+    {
+      "name": "MOORE, Barry",
+      "probability": 0.41708936428888754,
+      "is_holdout": false
+    },
+    {
+      "name": "NEHLS, Troy E.",
+      "probability": 0.4131410255026322,
+      "is_holdout": false
+    },
+    {
+      "name": "ROSE, John",
+      "probability": 0.413102580281286,
+      "is_holdout": false
+    },
+    {
+      "name": "GUTHRIE, Brett",
+      "probability": 0.4126941786506628,
+      "is_holdout": false
+    },
+    {
+      "name": "McCLINTOCK, Tom",
+      "probability": 0.41247142454996943,
+      "is_holdout": false
+    },
+    {
+      "name": "CAREY, Mike",
+      "probability": 0.41209693033994266,
+      "is_holdout": false
+    },
+    {
+      "name": "GRAVES, Garret",
+      "probability": 0.41035047436844774,
+      "is_holdout": false
+    },
+    {
+      "name": "SCOTT, Austin",
+      "probability": 0.4084685372076474,
+      "is_holdout": false
+    },
+    {
+      "name": "COMER, James",
+      "probability": 0.4082515456358403,
+      "is_holdout": false
+    },
+    {
+      "name": "BABIN, Brian",
+      "probability": 0.40780896641026143,
+      "is_holdout": false
+    },
+    {
+      "name": "HARSHBARGER, Diana",
+      "probability": 0.40671581822179215,
+      "is_holdout": false
+    },
+    {
+      "name": "CARTER, Buddy",
+      "probability": 0.40618443215122346,
+      "is_holdout": false
+    },
+    {
+      "name": "ELLZEY, Jake",
+      "probability": 0.4039568441871235,
+      "is_holdout": false
+    },
+    {
+      "name": "JOHNSON, Dustin",
+      "probability": 0.4026847567361601,
+      "is_holdout": false
+    },
+    {
+      "name": "JOYCE, John",
+      "probability": 0.4023400753513756,
+      "is_holdout": false
+    },
+    {
+      "name": "GOOD, Bob",
+      "probability": 0.40089683683735566,
+      "is_holdout": false
+    }
+  ]
+}

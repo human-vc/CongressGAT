@@ -1,0 +1,41 @@
+{
+  "115": {
+    "total_members": 444,
+    "gat_flagged": 18,
+    "rf_flagged": 22,
+    "both_flagged": 10,
+    "gat_only": 8,
+    "rf_only": 12,
+    "pct_gat_only": 26.666666666666668,
+    "pct_rf_only": 40.0,
+    "pct_both": 33.33333333333333,
+    "gat_threshold": 0.39530107378959656,
+    "rf_threshold": 0.26
+  },
+  "116": {
+    "total_members": 446,
+    "gat_flagged": 18,
+    "rf_flagged": 76,
+    "both_flagged": 14,
+    "gat_only": 4,
+    "rf_only": 62,
+    "pct_gat_only": 5.0,
+    "pct_rf_only": 77.5,
+    "pct_both": 17.5,
+    "gat_threshold": 0.39530107378959656,
+    "rf_threshold": 0.26
+  },
+  "117": {
+    "total_members": 447,
+    "gat_flagged": 16,
+    "rf_flagged": 67,
+    "both_flagged": 12,
+    "gat_only": 4,
+    "rf_only": 55,
+    "pct_gat_only": 5.633802816901409,
+    "pct_rf_only": 77.46478873239437,
+    "pct_both": 16.901408450704224,
+    "gat_threshold": 0.39530107378959656,
+    "rf_threshold": 0.26
+  }
+}
